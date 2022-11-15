@@ -1,0 +1,593 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+    
+}
+body{
+    background-color: #F8FAFD;
+    box-sizing: border-box;
+    color: #011627;
+}
+h4{
+    font-family: 'Futura Lt BT', sans-serif;
+    font-weight: 100;
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+p{
+    font-size: 1rem;
+    word-wrap: break-word;
+    font-weight: 400;
+    font-family: 'Futura Lt BT', sans-serif;
+}
+h1{
+    font-family: 'Futura BdCn BT', sans-serif;
+    font-weight: 700;
+}
+
+/* top part main css starts here */
+header{
+    margin-bottom: 50px;
+}
+.banner-logo-search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+/* logo part css */
+
+.logo{
+   
+    padding: 10px 0px;
+}
+.logo h4  sub{
+    font-size: 1rem;
+    border-top: 0.5px solid #F0C9B3;
+}
+
+/* search form part css */
+.search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0px;
+} 
+.search-bar .form-control{
+    display: inline-block;
+    background: transparent;
+    border-radius: 0px;
+}
+.search-bar .form-control:focus{
+    outline: none;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid #011627;
+}
+/* top part search icon */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 100
+}
+
+
+.search-button button{
+    font-size: 25px;
+    display: inline-block;
+    color: black;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #011627;
+    padding: 0px 40px;
+    transition: all 0.5s ease-in;
+    border-radius: 0px;
+    
+}
+
+/* search button hover */
+.search-button button:hover{
+    background: linear-gradient(50deg, #F0C9B3 , #FFF0DF);;
+    color: #011627;
+}
+.search-bar form input{
+    width: 300px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+}
+/* top part logo and search part css ends here */
+
+/* Main nav part css starts */
+#nav-part .container{
+    border-bottom: 2px solid #F0C9B3;
+}
+.main-nav{
+    padding: 0px 30px;
+    
+}
+
+#navbarNav{
+    padding: 0px 30px;
+}
+.navbar-nav{
+    width: 100%;
+}
+.navbar-nav .nav-item .nav-link{
+    padding: 10px 40px;
+    color: #011627;
+    font-family: 'Futura Lt BT', sans-serif;
+    font-weight: 900; 
+    transition: all linear 0.5s;
+}
+.navbar-nav .nav-item .nav-link:hover{
+    border: 1px solid #fbfbf2;
+    background: linear-gradient(50deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+}
+
+.add-to-cart-sign{
+    padding: 10px 20px;
+}
+.cart-button button{
+    font-size: 26px;
+    color: #011627;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0px 10px;
+    transition: all linear 0.5s;
+    
+}
+.cart-button button:hover{
+    border: 1px solid #fbfbf2;
+    background: linear-gradient(50deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+}
+
+
+/* banner Part Css */
+.section-title span p{
+    letter-spacing: 1px;
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(50deg, #F0C9B3 , #FFF0DF);
+    display: inline-block;
+    color: #011627;
+    padding: 5px;
+}
+.section-title h4{
+    font-weight: 100;
+    font-size: 5rem;
+    text-align: center;
+}
+
+#bannerCarousel{
+    width: 100%;
+    padding: 80px 0px;
+    
+}
+.carousel-item{
+    position: relative;
+    height: 600px;
+    width: 100%;
+}
+.carousel-item img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider-icon{
+    height: 3rem;
+    width: 3rem;
+}
+.carousel-indicators [data-bs-target]{
+    margin-bottom: 100px;
+    background-color: #fbfbf2;
+}
+
+/* \feature part css */
+
+.box{
+	width:350px;
+	margin: 0px 2px;
+	overflow: hidden;
+}
+.slide-img{
+	height: 300px;
+	position:relative;
+}
+.slide-img img{
+	width:100%;
+	height: 100%;
+	object-fit: cover;
+	box-sizing: border-box;
+}
+.detail-box{
+	width: 100%;
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 20px;
+    background: linear-gradient(50deg, #FFF0DF , #F0C9B3);
+    color: #011627;
+	box-sizing: border-box;
+   border-bottom-left-radius: 20px;
+   border-bottom-right-radius: 20px;
+}
+.detail-box p{
+    font-weight: 100;
+    color: #011627;
+}
+.type{
+	display: flex;
+	flex-direction: column;
+}
+.type a{
+	color:#011627;
+	margin: 5px 0px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	padding-right: 8px;
+    text-decoration: none;
+}
+.price{
+	color: #011627;
+	font-weight: 600;
+	font-size: 1.1rem;
+	font-family: poppins;
+	letter-spacing: 0.5px;
+    text-decoration: none;
+}
+.price:hover{
+    color: #011627;
+}
+.overlay{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width:100%;
+	height: 100%;
+	background: linear-gradient(50deg, #011627 , #04333C);
+    opacity: 0.7;
+	display: flex;
+    flex-direction: column;
+    color: #fbfbf2;
+	justify-content: center;
+	align-items: center;
+    visibility: hidden;
+    
+}
+.overlay .overlay-text p{
+    text-align: center;
+    word-wrap: break-word;
+    opacity: 1;
+    padding: 20px;
+}
+.overlay a{
+    text-decoration: none;
+}
+.buy-btn{
+	width:160px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fbfbf2;
+	color: #011627;
+	font-weight: 700;
+	letter-spacing: 1px;
+	box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+}
+.buy-btn:hover{
+	color:#fbfbf2;
+    background-color: #011627;
+}
+.slide-img:hover .overlay{
+	visibility: visible;
+    width: 90%;
+    height: 90%;
+    
+}
+ 
+@keyframes fade{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+.slider{
+	width:100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Slider part css/Feature part end */
+
+/* Exploring products css on landing page */
+#product{
+    padding: 50px 0px;
+    height: auto;
+}
+.product-header{
+    padding: 50px 0px;
+    border-top: 2px solid #F0C9B3;
+}
+#product .product-content-first{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    position: relative;
+}
+
+#product .product-content-first .product-main-first-content img{
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+#product .product-content-first .product-main-first-content .product-inner-content{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#product .product-content-first .product-main-first-content .product-inner-content h1{
+    font-weight: bolder;
+    padding: 10px 0px;
+    color: #fbfbf2;
+}
+#product .product-content-first .product-main-first-content .product-inner-content p{
+    /* font-size: 1rem; */
+    font-weight: bold;
+    text-align: center;
+    word-wrap: break-word;
+    padding: 10px 30px;
+    color: #fbfbf2;
+}
+
+#product .product-content-first .product-main-first-content .product-inner-content a{
+    border: 1px solid #fbfbf2;
+    background: linear-gradient(50deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    text-decoration: none;
+    padding: 10px 40px;
+    transition: all ease-in 0.5s;
+}
+#product .product-content-first .product-main-first-content .product-inner-content a span{
+    font-size: small;
+    color: #011627;
+}
+#product .product-content-first .product-main-first-content .product-inner-content a:hover{
+    background: linear-gradient(90deg, #FFF0DF , #F0C9B3);
+    color: #011627;
+    border-color: #011627;
+}
+
+/* Explore product content first-portion css ends */
+
+/* Explore product second content css starts */
+
+#product .product-content-second .product-main-second-content{
+    position: relative;
+    height: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#product .product-content-second .product-main-second-content img{
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+#product .product-content-second .product-main-second-content .product-inner-content{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#product .product-content-second .product-main-second-content .product-inner-content h1{
+    font-weight: bolder;
+    padding: 10px 0px;
+    color: #fbfbf2;
+}
+#product .product-content-second .product-main-second-content .product-inner-content p{
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fbfbf2;
+    text-align: center;
+    word-wrap: break-word;
+    padding: 10px 100px;
+    
+}
+
+#product .product-content-second .product-main-second-content .product-inner-content a{
+    text-decoration: none;
+    border: 1px solid #fbfbf2;
+    background: linear-gradient(50deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    padding: 10px 40px;
+    transition: all ease-in 0.5s;
+}
+#product .product-content-second .product-main-second-content .product-inner-content a span{
+    font-size: small;
+    color: #011627;
+}
+#product .product-content-second .product-main-second-content .product-inner-content a:hover{
+    background: linear-gradient(50deg, #FFF0DF , #F0C9B3);
+    color: #011627;
+    border-color: #011627;
+}
+
+/* New-arival section css */
+#new-arrival{
+   padding: 20px 0px;
+}
+#new-arrival .arrival-header{
+    padding-bottom: 20px;
+}
+.arrival-content{
+    padding: 30px 10px;
+}
+.arrival-description{
+    padding: 20px 0px;
+    
+}
+.arrival-description p{
+    font-weight: 700;
+    color:#011627;
+}
+.first-arrival-content{
+    position: relative;
+    overflow: hidden;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+
+}
+.first-arrival-content .arrival-img{
+    box-sizing: border-box;
+    height: 500px;
+    position: relative;
+}
+.first-arrival-content .arrival-img img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+
+.first-arrival-content a{
+    text-decoration: none;
+    border: 1px solid #fbfbf2;
+    background: linear-gradient(50deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    font-weight: 700;
+    padding: 10px 40px;
+    transition: all ease-in 0.5s;
+}
+.first-arrival-content a:hover{
+    background: linear-gradient(50deg, #FFF0DF , #F0C9B3);
+    color: #011627;
+    border-color: #011627;
+}
+
+
+.last-arrival-content{
+    position: relative;
+    overflow: hidden;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+
+}
+.last-arrival-content .arrival-img{
+    box-sizing: border-box;
+    height: 550px;
+    position: relative;
+}
+.last-arrival-content .arrival-img img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+
+.last-arrival-content a{
+    text-decoration: none;
+    border: 1px solid #fbfbf2;
+    background: linear-gradient(50deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    font-weight: 700;
+    padding: 10px 40px;
+    transition: all ease-in 0.5s;
+}
+.last-arrival-content a:hover{
+    background: linear-gradient(50deg, #FFF0DF , #F0C9B3);
+    color: #011627;
+    border-color: #011627;
+}
+
+/* footer css starts */
+#footer{
+    background: linear-gradient(50deg, #F0C9B3 , #FFF0DF);
+}
+.footer-1{
+    padding: 35px 35px;
+}
+.footer-1 .content p{
+    padding: 5px 0px;
+}
+.footer-2{
+    padding: 35px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.footer-2 .content-header b{
+    text-align: center;        
+}
+.footer-2 .content-header{
+    padding: 15px 0px;
+}
+.footer-2 .footer-2-content ul{
+    margin: 0px;
+    padding: 0px;
+}
+.footer-2 .footer-2-content ul li{
+    list-style: none;
+    padding: 3px 0px;
+}
+.footer-2 .footer-2-content ul li a{
+    
+    text-decoration: none;
+    color: #011627;
+}
+.sub-footer p{
+    color: #011627;
+}
+/* ******************************* */
+/* Landing page css ends here */
+/* ******************************** */

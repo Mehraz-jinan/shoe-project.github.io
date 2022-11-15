@@ -36,8 +36,6 @@ mongoose.connect(process.env.MONGOOSE)
 
 // Routing setup
 app.get('/' , homeRouter);
-
-
 //error setup
 // app.use('*' , (err , req , res , next) => {
     
