@@ -1,0 +1,78 @@
+<% layout('layout/boilerplate') %> 
+<%- include('../partial/navbar')  %> 
+<section id="view-product">
+    <div class="container-fluid">
+        <div class="row g-0">
+            <div class="col-lg-6">
+                <div class="product-view-img">
+                    <div class="image-1">
+                        <img class="img-fluid" src="/images/new-arrival/arrival-1.jpg" alt="">
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="sub-image">
+                                <img class="img-fluid" src="/images/new-arrival/arrival-2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sub-image">
+                                <img class="img-fluid" src="/images/new-arrival/arrival-3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sub-image">
+                                <img class="img-fluid" src="/images/new-arrival/arrival-4.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product-view-details">
+                    <div class="product-name">
+                        <p>
+                            <b>
+                                Leather shoe
+                            </b>
+                        </p>
+                        <p class="price">
+                            <b>Price: 200$</b>
+                        </p>
+                    </div>
+                    <div class="product-details">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum incidunt, neque explicabo deleniti adipisci delectus doloribus fuga nostrum officiis ab aperiam dolores nisi, perspiciatis culpa ratione suscipit rem soluta possimus?
+                        </p>
+                    </div>
+                    <div class="product-availity">
+                        <div class="available">
+                           <p> In Stock </p>
+                           <p>Out Of Stock</p>
+                        </div>
+                    </div>
+                    <div class="product-color" id="color">
+                        <div class="red"></div>
+                        <div class="green"></div>
+                        <div class="yellow"></div>
+                        <div class="violet"></div>
+                        <div class="purple"></div>
+                        <div class="blue"></div>
+                    </div>
+                    <div class="sizes">
+                        <div class="size-header">Choose Size:</div>
+                        <select name="size" id="size">
+                            <option value="" selected>Choose Your size</option>
+                            <option value="30" selected>30</option>
+                            <option value="35" selected>35</option>
+                            <option value="40" selected>40</option>
+                        </select>
+                    </div>
+                    <div class="action-button">
+                        <a href="/checkout">Add to cart</a>
+                        <a href="">Add to Wishlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

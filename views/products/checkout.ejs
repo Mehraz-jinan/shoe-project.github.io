@@ -1,0 +1,142 @@
+<% layout('layout/boilerplate') %> 
+<%- include('../partial/navbar')  %> 
+<section id="checkout">
+    <div class="container">
+        <div class="row g-2">
+            <div class="col-lg-5">
+                <div class="product-avatar">
+                   <img class="img-fluid" src="/images/new-arrival/arrival-4.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="product-innovoice">
+                    <div class="site-title">
+                        <a href="">
+                            <i class="fa-solid fa-cart-shopping"></i>Shopping
+                        </a>
+                    </div>
+                    <div class="product-title">
+                        <p>
+                            <b>
+                                Product Name
+                            </b>
+                            <a href="">
+                                <i class="fa-solid fa-link"></i>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="short-brief text-muted">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est obcaecati placeat repudiandae animi, repellendus aperiam minima suscipit nemo quo praesentium.</p>
+                    </div>
+                    <div class="delivery-address">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <b>
+                             Main Address
+                        </b>
+                            <br>
+                       <small>City , Country</small>
+                        
+                    </div>
+                    <hr>
+                    <div class="product-price">
+                        <p class="pricing-panel">
+                                Price: 200$
+                                
+                         </p>
+                            
+                                <i id="decrement" class="quantity-adjust fa-solid fa-minus"></i>
+                                <div class="quantity-box"><p id="box-value">
+                                    
+                                </p></div>
+                                <i id="increment" class=" quantity-adjust fa-solid fa-plus"></i>
+                            
+                    </div>
+                    <div class="confirmation">
+                        <form action="">
+                            <button>To Confirm</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="final-checkout">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="final-setup">
+                        <div class="delivery-address">
+                            <h3>
+                                Select Your delivery Address
+                            </h3>
+                            <a href="">
+                                <i class="fa-solid fa-location-crosshairs"></i>
+                                keep your current Address
+                            </a>
+                            <a href="">
+                                <i class="fa-solid fa-location-arrow"></i>
+                                Set a new Address
+                            </a>
+                        </div>
+                        <div class="payment-option">
+                            <h3>
+                                Choose Your payment method
+                            </h3>
+                            <form action="">
+                                <div class="pay-set"> <input type="radio" id="cash" name="on-cash">
+                                <label for="cash">
+                                    Cash On delivery
+                                </label>
+                            </div>
+                            <div class="pay-set">
+                                <input type="radio" id="net" name="net-banking">
+                                <label for="net">
+                                    Net Banking
+                                </label>
+                                </div>
+                                <div class="pay-set">
+                                    <input type="radio" id="card" name="on-card">
+                                    <label for="card">
+                                        Pay On card
+                                     </label>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="order-summary">
+                        <div class="product-cost">
+                            <p>Product-price:</p>
+                            <p>200$</p>
+                        </div>
+                        <div class="product-quantity">
+                            <p>Total-product:</p>
+                            <p>4</p>
+                        </div>
+                        <div class="shopping-cost">
+                            <p>Shopping-charge(Tax/VAT):</p>
+                            <p>10$</p>
+                        </div>
+                        <div class="shipping-cost">
+                            <p>Delivery Charge:</p>
+                            <p>5$</p>
+                        </div>
+                        <hr>
+                        <div class="total-cost">
+                            <p>Subtotal:</p>
+                            <p>815$</p>
+                        </div>
+                        <div class="checkout-button">
+                        <form action="">
+                            <button>Checkout</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
