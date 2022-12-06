@@ -17,68 +17,73 @@
     <div class="arrival-content">
         <div class="container-fluid">
             <div class="row">
+                 
                 <div class="col-lg-3">
                     <div class="first-arrival-content">
                         <div class="arrival-img">
-                            <img class="img-fluid" src="images/new-arrival/arrival-1.jpg" alt="new-arrival">
+                            <img class="img-fluid" src="<%= thirdLast.productImage  %> " alt="new-arrival">
                         </div>
                         <div class="arrival-description">
-                            <p class="arrival-product-name">Lorem ipsum dolor sit amet.
+                            <p class="arrival-product-name">
+                                <%= thirdLast.productName  %>.
                             </p>
                              <p class="arrival-in-stock">Limited Stock: 50 Piece Only</p>
-                             <p class="arrival-in-stock"> Available Now: 48 Piece</p>
+                             <p class="arrival-in-stock"> Available Now: <%= thirdLast.productAvaility  %></p>
                              <b class="arrival-product-price">
-                                Price: $19.99.
+                                Price: <%= thirdLast.productPrice  %>.
                             </b>
                             <small class="text-muted">
                                 Do Hurry and Check It out
                             </small>
                         </div>
-                        <a href="">Submit</a>
+                        <a href="/product/product-view/<%= thirdLast._id  %> ">View Product</a>
                         
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="first-arrival-content">
                         <div class="arrival-img">
-                            <img class="img-fluid" src="images/new-arrival/arrival-2.jpg" alt="new-arrival">
+                            <img class="img-fluid" src="<%=secondLast.productImage   %> " alt="new-arrival">
                         </div>
                         <div class="arrival-description">
-                            <p class="arrival-product-name">Lorem Legit Shoes
+                            <p class="arrival-product-name">
+                                <%= secondLast.productName  %> 
                             </p>
                              <p class="arrival-in-stock">Limited Stock: 50 Piece Only</p>
-                             <p class="arrival-in-stock"> Available Now: 48 Piece</p>
+                             <p class="arrival-in-stock"> Available Now: <%= secondLast.productAvaility  %> e</p>
                              <b class="arrival-product-price">
-                                Price: $19.99.
+                                Price: <%= secondLast.productPrice  %> .
                             </b>
                             <small class="text-muted">
                                 Do Hurry and Check It out
                             </small>
                         </div>
-                        <a href="">Submit</a>
+                        <a href="/product/product-view/<%= secondLast._id  %> ">View Product</a>
                         
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="last-arrival-content">
                         <div class="arrival-img">
-                            <img class="img-fluid" src="images/new-arrival/arrival-3.jpg" alt="new-arrival">
+                            <img class="img-fluid" src="<%= lastProduct.productImage  %> " alt="new-arrival">
                         </div>
                         <div class="arrival-description">
-                            <p class="arrival-product-name">Lorem Legit Shoes
+                            <p class="arrival-product-name">
+                                <%= lastProduct.productName  %> 
                             </p>
                              <p class="arrival-in-stock">Limited Stock: 50 Piece Only</p>
-                             <p class="arrival-in-stock"> Available Now: 48 Piece</p>
+                             <p class="arrival-in-stock"> Available Now: <%= lastProduct.productAvaility  %> </p>
                              <b class="arrival-product-price">
-                                Price: $19.99.
+                                Price: <%= lastProduct.productPrice %> 
                             </b>
                             <small class="text-muted">
                                 Do Hurry and Check It out
                             </small>
                         </div>
-                        <a href="">Submit</a>
+                        <a href="/product/product-view/<%= lastProduct._id  %> ">View Product</a>
                     </div>
                 </div>
+                 
             </div>
         </div>
     </div>

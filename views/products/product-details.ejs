@@ -6,7 +6,7 @@
             <div class="col-lg-6">
                 <div class="product-view-img">
                     <div class="image-1">
-                        <img class="img-fluid" src="/images/new-arrival/arrival-1.jpg" alt="">
+                        <img class="img-fluid" src="<%= findProduct.productImage  %> " alt="">
                     </div>
                     <div class="row g-0">
                         <div class="col-md-4">
@@ -32,22 +32,24 @@
                     <div class="product-name">
                         <p>
                             <b>
-                                Leather shoe
+                                <%= findProduct.productName  %> 
                             </b>
                         </p>
                         <p class="price">
-                            <b>Price: 200$</b>
+                            <b>
+                                price:
+                                <%= findProduct.productPrice  %>$ 
+                            </b>
                         </p>
                     </div>
                     <div class="product-details">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum incidunt, neque explicabo deleniti adipisci delectus doloribus fuga nostrum officiis ab aperiam dolores nisi, perspiciatis culpa ratione suscipit rem soluta possimus?
+                            <%= findProduct.productDescription  %> 
                         </p>
                     </div>
                     <div class="product-availity">
                         <div class="available">
-                           <p> In Stock </p>
-                           <p>Out Of Stock</p>
+                           <%= findProduct.productAvaility  %> 
                         </div>
                     </div>
                     <div class="product-color" id="color">
@@ -62,14 +64,14 @@
                         <div class="size-header">Choose Size:</div>
                         <select name="size" id="size">
                             <option value="" selected>Choose Your size</option>
-                            <option value="30" selected>30</option>
-                            <option value="35" selected>35</option>
-                            <option value="40" selected>40</option>
+                            <option value="<%= findProduct.productSize  %> " selected><%= findProduct.productSize  %></option>
+                            <option value="<%= findProduct.productSize  %>" selected><%= findProduct.productSize  %></option>
+                            <option value="<%= findProduct.productSize  %>" selected><%= findProduct.productSize  %></option>
                         </select>
                     </div>
                     <div class="action-button">
-                        <a href="/checkout">Add to cart</a>
-                        <a href="">Add to Wishlist</a>
+                        <a href="/product/checkout">Add to cart</a>
+                        <a href="/product/wishlist">Add to Wishlist</a>
                     </div>
                 </div>
             </div>

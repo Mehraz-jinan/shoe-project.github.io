@@ -46,6 +46,10 @@ header{
    
     padding: 10px 0px;
 }
+.logo a{
+    color: #011627;
+    text-decoration: none;
+}
 .logo h4  sub{
     font-size: 1rem;
     border-top: 0.5px solid #F0C9B3;
@@ -756,7 +760,9 @@ a .cart-button:hover{
     color: #011627;
     border: 1px solid #fbfbf2;
 }
-
+#auth .sign-in .password-recovary{
+    text-decoration: none;
+}
 #auth .sign-up{
     border: 2px solid green;
 }
@@ -846,8 +852,11 @@ a .cart-button:hover{
     object-fit: cover;
 }
 #view-product .product-view-details{
-    height: auto;
+    height: 100%;
     padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 #view-product .product-view-details .product-name p b{
     font-size: 2rem;
@@ -949,7 +958,7 @@ a .cart-button:hover{
 /* checkout page css starts */
 /* ******************* */
 #checkout{
-    padding: 0px 0px 40px 0px;
+    padding: 40px 0px;
 }
 #checkout .product-avatar{
     height: 100%;
@@ -1207,6 +1216,58 @@ a .cart-button:hover{
    color: #011627;
    padding: 0px 3px;
 }
+
+/* media quary for 450 */
+
+@media (max-width: 451px) {
+    a .cart-button {
+        font-size: 1.2rem;
+        color: #011627;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 5px 4px;
+        text-decoration: none;
+        transition: all linear 0.5s;
+    }
+    #view-product .product-view-details .action-button {
+        padding: 20px 0px;
+        width: 100%;
+        display: flex;
+        gap: 6px;
+    }
+    #view-product .product-view-details .action-button a {
+        font-weight: 500;
+        color: black;
+        background: transparent;
+        outline: none;
+        border: 1px solid #011627;
+        padding: 10px 23px;
+        border-radius: 0px;
+        transition: all ease-in 0.5s;
+        text-decoration: none;
+    }
+    .search-button{
+        margin-top: 10px;
+    }
+    #wishlist .wishlist-product .product-action form button {
+        font-weight: 500;
+        color: black;
+        background: transparent;
+        outline: none;
+        border: 1px solid #011627;
+        padding: 10px 4px;
+        transition: all ease-in 0.5s;
+        text-decoration: none;
+        width: 100%;
+    }
+    .logo h4 sub {
+        display: none;
+    }
+}
+
+
+/*  */
 
 /* *************** */
 /* Wishlist css starts */

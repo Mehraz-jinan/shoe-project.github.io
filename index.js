@@ -10,16 +10,14 @@ const path = require('path');
 //configuration of dotenv
 dotenv.config();
 
-
 //Router file requirement
-const homeRouter = require('./router/homepage');
+const productRouter = require('./router/product');
 const authRouter = require('./router/auth-page');
-const productRouter = require('./router/productpage');
-const showRouter = require('./router/productdetail');
-const checkoutRouter = require('./router/checkout');
-const wishlistRouter = require('./router/wishlist');
-const sellerRouter = require('./router/seller-dashboard');
+const landingPageRouter = require('./router/landing-page');
 
+
+const product = require('./models/productModel');
+const { urlencoded } = require('express');
 
 //rendering file setup
 app.set('view engine' , 'ejs');
@@ -27,9 +25,10 @@ app.set('views' , path.join(__dirname , 'views'));
 app.engine('ejs' , engine);
 
 //static file setup
-app.use(express.static(path.join(__dirname , 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(urlencoded({extended:true}))
 
-//method override setup
+//method override setup and mongoose setup
 app.use(methodOverride('_method'));
 mongoose.connect(process.env.MONGOOSE)
 .then(() => {
@@ -41,18 +40,11 @@ mongoose.connect(process.env.MONGOOSE)
 });
 
 // Routing setup
-app.get('/' , homeRouter);
-app.get('/auth', authRouter);
-app.get('/product', productRouter);
-app.get('/product-view', showRouter);
-app.get('/checkout', checkoutRouter);
-app.get('/wishlist', wishlistRouter);
-app.get('/dashboard', sellerRouter);
-//error setup
-// app.use('*' , (err , req , res , next) => {
-    
-//     res.status
-// })
+app.use('/' , landingPageRouter);
+app.use('/product', productRouter);
+app.use('/auth', authRouter);
+
+
 //port setup
 app.listen(process.env.PORT , () => {
     console.log('connected to the port')
