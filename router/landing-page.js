@@ -9,10 +9,6 @@ router.get('/', async(req, res, next) => {
     const lastProduct = productConfig[productConfig.length - 1];
     const secondLast = productConfig[productConfig.length - 2];
     const thirdLast = productConfig[productConfig.length - 3];
-
-    console.log(lastProduct);
-    console.log(secondLast);
-    console.log(thirdLast);
     
     
     

@@ -5,10 +5,13 @@
     
 }
 body{
-    background-color: #F8FAFD;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 25%, rgba(245,245,245,0.6446953781512605) 50%, rgba(185,166,166,0.2945553221288515) 87%);
+    /* background: linear-gradient(90deg, rgba(252,245,245,1) 0%, rgba(255,255,255,0.773546918767507) 49%, rgba(241,227,227,0.8687850140056023) 84%); */
+    /* background-color: #F8FAFD; */
     box-sizing: border-box;
     color: #011627;
 }
+
 h4{
     font-family: 'Futura Lt BT', sans-serif;
     font-weight: 100;
@@ -111,9 +114,7 @@ header{
 /* top part logo and search part css ends here */
 
 /* Main nav part css starts */
-#nav-part .container-fluid{
-    border-bottom: 2px solid #F0C9B3;
-}
+
 .main-nav{
     padding: 0px 30px;
     
@@ -129,13 +130,17 @@ header{
     justify-content: space-around;
     text-align: center;
     position: relative;
+    padding: 20px 0px;
 }
 .menu .nav-link{
     padding: 10px 40px;
     color: #011627;
     font-family: 'Futura Lt BT', sans-serif;
-    font-weight: 900; 
+    font-weight: 100; 
     transition: all linear 0.5s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #F0C9B3;
 }
 .menu .nav-link:hover{
     border: 1px solid #fbfbf2;
@@ -163,7 +168,7 @@ header{
 .side-menu{
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: auto;
         margin: 10px 0px;
 }
 .side-menu .nav-link{
@@ -184,6 +189,66 @@ header{
     background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
     color: #011627;
 }
+.profile-intro{
+    width: 100%;
+    height: 100%;
+    padding: 0px 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.profile-intro img{
+    height: 50px;
+    object-fit: cover;
+    background-position: center; 
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    
+}
+.menu-dropdown{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 0px;
+    text-align: right;
+}
+.menu-dropdown p{
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    color: #011627;
+    font-weight: 100;
+    border-bottom: 1px solid #F0C9B3;
+    text-align: right;
+}
+.menu-dropdown a{
+    width: 100%;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #011627;
+    text-decoration: underline;
+    padding: 10px 30px;
+    transition: all ease-in 0.5s;
+}
+.menu-dropdown a:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    text-decoration: none;
+}
+.menu-dropdown .cart-button:hover{
+    color: #011627;
+}
+.menu-dropdown-show{
+    display: none;
+}
+
 @media (max-width: 768px) {
     .menu{
         display: none;
@@ -200,19 +265,16 @@ header{
     .menu{
         display: flex;
     }
-    #nav-part .container-fluid{
-        border-bottom: 2px solid #F0C9B3;
-    }
 }
 
 .add-to-cart-sign{
-    padding: 15px 0px;
+    padding: 20px 0px;
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    height: 100%;
 }
-
+.add-to-cart-sign a{
+    text-decoration: none;
+}
  a .cart-button{
     font-size: 1.2rem;
     color: #011627;
@@ -222,11 +284,14 @@ header{
     padding: 5px 10px;
     text-decoration: none;
     transition: all linear 0.5s;
+    display: flex;
+    justify-content: flex-end;
 }
 a .cart-button:hover{
     color: #F0C9B3;
     font-weight: 900;
 }
+
 
 
 /* banner Part Css */
@@ -723,6 +788,7 @@ a .cart-button:hover{
 #auth .sign-in .sign-in-form form .form-decor label{
     padding: 10px 0px;
     font-weight: 700;
+    display: block;
 }
 #auth .sign-in .sign-in-form form .form-decor label p{
     font-weight: 700;
@@ -739,6 +805,15 @@ a .cart-button:hover{
 #auth .sign-in .sign-in-form form .form-decor input:focus{
     outline: none;
     background-color: transparent;
+}
+#auth .sign-in .sign-in-form form .form-decor select{
+    padding: 10px 30px;
+    border: 1px solid #011627;
+    background-color: transparent;
+}
+#auth .sign-in .sign-in-form form .form-decor select:focus{
+    outline: none;
+    border: 1px solid #011627;
 }
 #auth .sign-in .sign-in-form form .sign-in-button{
  text-align: center;
@@ -828,14 +903,14 @@ a .cart-button:hover{
 }
 
 #view-product .product-view-img{
-    height: auto;
+    height: 100%;
     width: 100%;
     padding: 10px 0px;
     
 }
 #view-product .product-view-img .image-1{
     width: 100%;
-    height: 400px;
+    height: 600px;
 }
 #view-product .product-view-img .image-1 img{
     width: 100%;
@@ -844,7 +919,7 @@ a .cart-button:hover{
 }
 #view-product .product-view-img .sub-image{
     width: 100%;
-    height: 200px;
+    height: 300px;
 }
 #view-product .product-view-img .sub-image img{
     width: 100%;
@@ -935,7 +1010,27 @@ a .cart-button:hover{
 #view-product .product-view-details .action-button{
     padding: 20px 0px;
     width: 100%;
+    display: flex;
+    gap: 10px;
 }
+#view-product .product-view-details .action-button button{
+    font-weight: 700;
+    color: black;
+    background: transparent;
+    outline: none;
+    border: 1px solid #011627;
+    padding: 10px 40px;
+    border-radius: 0px;
+    transition: all ease-in 0.5s;
+    text-decoration: none;
+}
+#view-product .product-view-details .action-button button:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);;
+    color: #011627;
+    border: 1px solid #fbfbf2;
+}
+
+
 #view-product .product-view-details .action-button a{
     font-weight: 700;
     color: black;
@@ -952,6 +1047,230 @@ a .cart-button:hover{
     color: #011627;
     border: 1px solid #fbfbf2;
 }
+
+
+#view-product .product-review{
+    padding: 20px 0px;
+}
+
+#view-product .product-review .main-review .review-heading{
+    padding: 5px 0px;
+}
+#view-product .product-review .main-review .review-heading p{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    text-decoration-color: #F0C9B3;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 100;
+    color: #011627;
+}
+#view-product .product-review .main-review .review-lookup{
+    padding: 5px 0px;
+}
+#view-product .product-review .main-review .review-lookup .userheading {
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+}
+#view-product .product-review .main-review .review-lookup .userheading img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+#view-product .product-review .main-review .review-lookup .userheading p{
+    padding: 0px 10px;
+    font-weight: 700;
+    font-size: 16px; 
+}
+#view-product .product-review .main-review .review-lookup .main-content {
+    padding: 5px 60px;
+}
+#view-product .product-review .main-review .review-lookup .main-content p{
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+#view-product .product-review .main-review .review-lookup .reply{
+    padding: 0px 60px;
+}
+#view-product .product-review .main-review .review-lookup .reply form{
+    display: inline-block;
+}
+#view-product .product-review .main-review .review-lookup .reply form button{
+    padding: 0px 10px;
+    border: none;
+    text-decoration: none;
+    background-color: transparent;
+    color: #0d6efd;
+}
+#view-product .product-review .main-review .review-lookup .reply p{
+    text-decoration: none;
+    padding-right: 10px;
+    color: #0d6efd;
+    cursor: pointer;
+    display: inline-block;;
+} 
+#view-product .product-review .main-review .review-lookup .reply a{
+    text-decoration: none;
+    color: #0d6efd;
+    cursor: pointer;
+    display: inline-block;
+} 
+
+#view-product .product-review .main-review .review-lookup  .review-maker form input{
+    width: 40%;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    outline: none;
+}
+#view-product .product-review .main-review .review-lookup  .review-maker form button{
+    font-weight: 700;
+    color: #0d6efd;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 10px 40px;
+    transition: all ease-in 0.5s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#view-product .product-review .review-maker{
+    padding: 40px 0px;
+}
+#view-product .product-review .review-maker form{
+    display: flex;
+    justify-content: center;
+}
+#view-product .product-review .review-maker form input{
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    outline: none;
+}
+#view-product .product-review .review-maker form input:focus{
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    outline: none;
+}
+#view-product .product-review .review-maker form button{
+    font-weight: 700;
+    color: black;
+    background: transparent;
+    outline: none;
+    border: 1px solid #011627;
+    padding: 10px 40px;
+    transition: all ease-in 0.5s;
+    text-decoration: none;
+}
+#view-product .product-review .review-maker form button:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    border: 1px solid #fbfbf2;
+}
+#view-product .review-lookup h3{
+    text-align: center;
+    border-bottom: 2px solid #F0C9B3;
+    padding: 20px 0px;
+
+}
+
+
+/* ******************** */
+/* Review edit page css */
+/* ********************* */
+#review-edit{
+    padding: 30px 0px;
+    width: 100%;
+    height: auto;
+}
+#review-edit form .edit-form textarea{
+    width: 80%;
+    height: 100px;
+    background-color: transparent;
+    border: 1px solid #011627;
+    transform: translateX(15%);
+}
+#review-edit form .edit-form textarea:focus{
+    width: 80%;
+    height: 100px;
+    background-color: transparent;
+    border: 1px solid #011627;
+    outline: none;
+}
+#review-edit form  .edit-form-button{
+    padding: 10px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#review-edit form .edit-form-button button{
+    font-weight: 700;
+    color: black;
+    background: transparent;
+    outline: none;
+    border: 1px solid #011627;
+    padding: 10px 40px;
+    transition: all ease-in 0.5s;
+    text-decoration: none;
+}
+#review-edit form .edit-form-button button:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    border: 1px solid #fbfbf2;
+}
+#review-edit .backto-product a{
+    text-decoration: none;
+    color: #011627;
+}
+#review-edit .backto-product p{
+    font-weight: 700;
+}
+.commentetor-name{
+    display: flex;
+    align-items: center;
+}
+.commentetor-name img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.commentetor-name p{
+    padding: 0px 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.review-lookup .main-comment p{
+    padding: 0px 60px;
+}
+.review-lookup .sub-button a{
+    text-decoration: none;
+    color: #0d6efd;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 0px;
+}
+.review-lookup .sub-button form{
+    display: inline-block;
+    padding: 10px 0px;
+}
+.review-lookup .sub-button form button{
+    padding: 0px 10px;
+    border: none;
+    text-decoration: none;
+    background-color: transparent;
+    color: #0d6efd;
+}
+/* ******************** */
+/* Review edit page css ends */
+/* ********************* */
 
 
 /* ***************** */
@@ -973,6 +1292,10 @@ a .cart-button:hover{
 
 #checkout .product-innovoice{
     padding: 20px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 #checkout .product-innovoice .site-title a{
     padding: 30px 0px;
@@ -1014,51 +1337,22 @@ a .cart-button:hover{
     justify-content: space-between;
     padding: 20px 0px;
 }
-#checkout .product-innovoice .product-price .pricing-panel{
-    font-weight: 100;
-    font-size: 2rem;
+
+
+
+#checkout .product-innovoice .product-price  p{
+    
+    padding: 0px 0px;
+    font-size: 1.3rem;
+    font-weight: 500;
 }
-#checkout .product-innovoice .product-price i{
-    font-size: 15px;
-    /* font-weight: 100; */
-}
-#checkout .product-innovoice .product-price .fa-add:before , .fa-plus:before {
-    content: "\2b";
-    border: 1px solid black;
-    border-radius: 30%;
-    padding: 5px 10px;
-}
-#checkout .product-innovoice .product-price .fa-add:before , .fa-minus:before {
-    content: "\f068";
-    border: 1px solid black;
-    border-radius: 30%;
-    padding: 5px 10px;
-}
-#checkout .product-innovoice .product-price  .quantity-box p{
-    border: 1px solid black;
-    padding: 5px 30px;
+#checkout .product-innovoice .product-price  p small{
+    
+    padding: 0px 0px;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 100;
 }
-#checkout .product-innovoice .confirmation{
-    padding: 10px 0px;
-    text-align: center;
-}
-#checkout .product-innovoice .confirmation form button{
-    font-weight: 700;
-    color: black;
-    background: transparent;
-    outline: none;
-    border: 1px solid #011627;
-    padding: 10px 40px;
-    transition: all ease-in 0.5s;
-    text-decoration: none;
-}
-#checkout .product-innovoice .confirmation form button:hover{
-    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);;
-    color: #011627;
-    border: 1px solid #fbfbf2;
-}
+
 #checkout .final-checkout{
     padding: 20px 10px;
 }
@@ -1162,8 +1456,8 @@ a .cart-button:hover{
     padding: 20px 10px;
 }
 #wishlist .wishlist-image{
-    height: 100%;
-    width: 100%;
+    height: 356px;
+    width: 356px;
 }
 #wishlist .wishlist-image img{
     object-fit: cover;
@@ -1188,15 +1482,15 @@ a .cart-button:hover{
     font-size: 1.2rem;
     font-weight: 700;
 }
-#wishlist .wishlist-product .product-action {
+#wishlist .wishlist-product .action-button {
     display: flex;
     justify-content: center;
     width: 100%;
 }
-#wishlist .wishlist-product .product-action .cart-from{
+#wishlist .wishlist-product .action-button .cart-from{
     padding: 0px 10px;
 }
-#wishlist .wishlist-product .product-action form button{
+#wishlist .wishlist-product .action-button form button{
     font-weight: 500;
     color: black;
     background: transparent;
@@ -1207,12 +1501,31 @@ a .cart-button:hover{
     text-decoration: none;
     width: 100%;
 }
-#wishlist .wishlist-product .product-action form button:hover{
+#wishlist .wishlist-product .action-button form button:hover{
     background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
     color: #011627;
     border: 1px solid #fbfbf2;
 }
-#wishlist .wishlist-product .product-action form button i{
+#wishlist .wishlist-product .action-button form button i{
+   color: #011627;
+   padding: 0px 3px;
+}
+#wishlist .wishlist-product .action-button a {
+    font-weight: 500;
+    color: black;
+    background: transparent;
+    outline: none;
+    border: 1px solid #011627;
+    padding: 10px 30px;
+    transition: all ease-in 0.5s;
+    text-decoration: none;
+}
+#wishlist .wishlist-product .action-button a:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    border: 1px solid #fbfbf2;
+}
+#wishlist .wishlist-product .action-button a i{
    color: #011627;
    padding: 0px 3px;
 }
@@ -1276,3 +1589,405 @@ a .cart-button:hover{
 /* ****************** */
 /* Dashboard Css starts */
 /* ****************** */
+
+.dashboard-menu{
+    padding: 30px 0px;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+}
+.dashboard-menu .side-nav{
+    height: 100%;
+}
+.side-nav-menu{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.side-nav-menu .nav-link{
+    color: #011627;
+    font-family: 'Futura Lt BT', sans-serif;
+    font-weight: 100;
+    transition: all ease-in 0.5s;
+    padding: 20px 40px;
+    border-bottom: 2px solid #F0C9B3;
+    text-transform: capitalize;
+}
+.side-nav-menu .nav-link:hover{
+    border: 1px solid #011627;
+    background: #fbfbf2;
+    color: #011627;
+   
+}
+.toggle-button .toggle-icon{
+    background-color: transparent;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 0px 0px;
+    border: none;
+}
+.toggle-button .toggle-icon:hover{
+    color: #F0C9B3;
+    font-weight: 900;
+    border-color: #F0C9B3;
+    outline: none;
+    box-shadow: none;
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    
+    transition: all linear 0.5s;
+    color: #011627;
+}
+.side-menu{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 10px 0px;
+}
+.side-menu .nav-link{
+        width: 100%;
+        text-align: center;
+        padding: 20px 0px;
+        letter-spacing: 2px;
+        font-weight: 500;
+        font-size: 14px;
+       text-decoration: none;
+       border-bottom: 2px solid #F0C9B3;
+       
+    transition: all linear 0.5s;
+       margin: 5px 0px;
+}
+.side-menu .nav-link:hover{
+    border: 1px solid #fbfbf2;
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+}
+@media (max-width: 768px) {
+    .side-nav-menu{
+        display: none;
+    }
+    .side-nav{
+        border-right: none;
+    }
+    .dashboard-menu{
+        background: transparent;
+    }
+    
+}
+@media (min-width: 768px){
+    .side-nav-menu{
+        display: none;
+    }
+    .side-nav-menu{
+        display: flex;
+    }
+}
+.dashboard-form{
+    padding: 30px 10px;
+}
+.dashboard-form form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.dashboard-form form label{
+    display: block;
+    padding: 10px 0px;
+    font-weight: 700;
+    font-family: 'Futura Lt BT', sans-serif;
+}
+.dashboard-form form input{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #011627;
+    padding: 5px 0px;
+    width: 70%;
+}
+.dashboard-form form input:focus{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #011627;
+    background-color: transparent;
+}
+.dashboard-form form textarea{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #011627;
+    padding: 5px 0px;
+    width: 70%;
+}
+.dashboard-form form textarea:focus{
+    outline: none;
+    border: 1px solid #011627;
+}
+.dashboard-form form select{
+    padding: 10px 30px;
+    border: 1px solid #011627;
+    background-color: transparent;
+}
+.dashboard-form form select:focus{
+    outline: none;
+    border: 1px solid #011627;
+}
+.dashboard-form .form-button{
+    padding: 20px 0px;
+}
+.dashboard-form .form-button button{
+    font-weight: 500;
+    color: black;
+    background: transparent;
+    outline: none;
+    border: 1px solid #011627;
+    padding: 10px 30px;
+    transition: all ease-in 0.5s;
+    text-decoration: none;
+
+}
+.dashboard-form .form-button button:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    border: 1px solid #fbfbf2;   
+}
+
+/* Product Edit Page Css starts here */
+#edit-product{
+    padding: 20px 0px;
+}
+#edit-product .backto-product a{
+    text-decoration: none;
+}
+#edit-product .backto-product a p{
+    font-size: 1.1rem;
+    color: #011627;
+}
+
+#edit-product .edit-header p{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 100;
+    color: #011627;
+}
+#edit-product .edit-form .edit-main-form{
+    padding: 20px 0px;
+}
+#edit-product form .form-decor{
+    padding: 20px 20px;
+    width: 100%;
+}
+#edit-product form .form-decor label{
+    padding: 10px 0px;
+    font-weight: 700;
+}
+#edit-product form .form-decor label p{
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#edit-product form .form-decor input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #011627;
+    background: transparent;
+    outline: none;
+}
+#edit-product form .form-decor textarea{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #011627;
+    background: transparent;
+    outline: none;
+}
+#edit-product form .form-decor textarea:focus{
+    outline: none;
+    background-color: transparent;
+}
+#edit-product form .form-decor input:focus{
+    outline: none;
+    background-color: transparent;
+}
+#edit-product form .sign-in-button{
+ text-align: center;
+ padding: 10px 0px;
+}
+#edit-product form .sign-in-button button{
+    font-weight: 700;
+    color: black;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #011627;
+    padding: 10px 40px;
+    border-radius: 0px;
+    transition: all ease-in 0.5s;
+}
+#edit-product form .sign-in-button button:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    border: 1px solid #fbfbfb;
+}
+
+/* flash messages css starts */
+.popup{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    margin: 5px 0px;
+    text-align: center;
+}
+
+.popup-success{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+}
+.popup p{
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+.popup-error{
+    background: linear-gradient(90deg, rgba(116,14,14,1) 0%, rgba(222,25,25,0.773546918767507) 56%, rgba(255,0,0,0.7455357142857143) 100%);
+    color: #fbfbf2;
+}
+.popup p{
+    font-weight: 100;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+.cross-sign{
+    display: none;
+}
+
+
+/* cart page button css */
+/* everything remains like wishlist */
+#wishlist .wishlist-product .action-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+#wishlist .wishlist-product .action-button  a{
+    font-weight: 500;
+    color: black;
+    background: transparent;
+    outline: none;
+    border: 1px solid #011627;
+    padding: 10px 30px;
+    transition: all ease-in 0.5s;
+    text-decoration: none;
+}
+#wishlist .wishlist-product .action-button  a:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    border: 1px solid #fbfbf2;
+}
+#wishlist .wishlist-product .action-button  a i{
+   color: #011627;
+   padding: 0px 3px;
+}
+
+/* Admin Navbar Order css starts here */
+
+#order .all-order{
+    padding: 20px 0px;
+    
+}
+#order .all-order .product-summary{
+    display: flex;
+    justify-content: space-between;
+}
+#order .all-order .product-summary .product-img img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#order .all-order .product-summary .product-info p  label{
+    text-transform: capitalize;
+    font-weight: 700;
+}
+#order .all-order .product-summary .action-button a{
+    text-decoration: none;
+    color: #0d6efd;
+}
+#order  .order-heading{
+    text-align: center;
+    padding: 30px 0px;
+}
+#order  .order-heading p{
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: #011627;
+    text-decoration: underline;
+    text-decoration-color: #F0C9B3;
+}  
+
+/* Admin Navbar Order-details css starts here */
+
+#order-details .order-content{
+    padding: 30px 0px;
+}
+#order-details  .order-heading{
+    text-align: center;
+    padding: 20px 0px;
+}
+#order-details  .order-heading p{
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: #011627;
+    text-decoration: underline;
+    text-decoration-color: #F0C9B3;
+    
+}
+#order-details .order-content .product-image{
+    padding: 20px 0px;
+    height: 450px;
+    width: 100%;
+}
+#order-details .order-content .product-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#order-details .order-content .product-info p label{
+    font-weight: 700;
+}
+#order-details .order-content .product-info p span{
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #011627;
+}
+#order-details .order-content .action-button form{
+    display: inline;
+    padding-right: 20px;
+}
+#order-details .order-content .action-button form button{
+    font-weight: 700;
+    color: black;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #011627;
+    padding: 10px 40px;
+    border-radius: 0px;
+    transition: all ease-in 0.5s;
+}
+#order-details .order-content .action-button form button:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    border: 1px solid #fbfbfb;
+}
+#order-details  p a{
+    text-decoration: none;
+    color: #0d6efd;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+

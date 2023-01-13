@@ -2,31 +2,32 @@
 <%- include('../partial/navbar')  %> 
 <section id="wishlist">
     <div class="container">
+        <% for(let wish of wishUser.wishlist){ %> 
         <div class="row">
             <div class="col-lg-4">
                 <div class="wishlist-image">
-                    <img class="img-fluid" src="/images/new-arrival/arrival-4.jpg" alt="wishlist-image">
+                    <img class="img-fluid" src="<%= wish.productImage  %> " alt="wishlist-image">
                 </div>
             </div>
             <div class="col-lg-8">
                 <div class="wishlist-product">
                     <div class="product-name">
                         <p>
-                            BASKET WITH run
+                            <%= wish.productName  %> 
                          </p>
                     </div>
                     <div class="product-price">
                         <p>
-                                Price: 200$
+                              Price: <%= wish.productPrice  %> $ 
                         </p>
                     </div>
-                    <div class="product-action">
+                    <div class="action-button">
                         
-                            <form class="view-from" action="">
-                                <button><i class="fa-regular fa-eye"></i>
-                                    View Product</button>
-                            </form>
-                            <form class="cart-from" action="">
+                        <a href="/product/product-view/<%= wish._id %>">
+                            <i class="fa-regular fa-eye"></i>
+                                    View product
+                                </a>
+                            <form class="cart-from" action="/product/checkout/<%= wish._id  %>/user/<%= activeUser._id  %>" method="POST">
                                 <button>
                                     <i class="fa-solid fa-cart-shopping"></i>
                                     Add to cart</button>
@@ -37,110 +38,6 @@
             </div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="wishlist-image">
-                    <img class="img-fluid" src="/images/new-arrival/arrival-1.jpg" alt="wishlist-image">
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="wishlist-product">
-                    <div class="product-name">
-                        <p>
-                            BASKET WITH run
-                         </p>
-                    </div>
-                    <div class="product-price">
-                        <p>
-                                Price: 200$
-                        </p>
-                    </div>
-                    <div class="product-action">
-                        
-                            <form class="view-from" action="">
-                                <button><i class="fa-regular fa-eye"></i>
-                                    View Product</button>
-                            </form>
-                            <form class="cart-from" action="">
-                                <button>
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    Add to cart</button>
-                            </form>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="wishlist-image">
-                    <img class="img-fluid" src="/images/new-arrival/arrival-2.jpg" alt="wishlist-image">
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="wishlist-product">
-                    <div class="product-name">
-                        <p>
-                            BASKET WITH run
-                         </p>
-                    </div>
-                    <div class="product-price">
-                        <p>
-                                Price: 200$
-                        </p>
-                    </div>
-                    <div class="product-action">
-                        
-                            <form class="view-from" action="">
-                                <button><i class="fa-regular fa-eye"></i>
-                                    View Product</button>
-                            </form>
-                            <form class="cart-from" action="">
-                                <button>
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    Add to cart</button>
-                            </form>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="wishlist-image">
-                    <img class="img-fluid" src="/images/new-arrival/arrival-3.jpg" alt="wishlist-image">
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="wishlist-product">
-                    <div class="product-name">
-                        <p>
-                            BASKET WITH run
-                         </p>
-                    </div>
-                    <div class="product-price">
-                        <p>
-                                Price: 200$
-                        </p>
-                    </div>
-                    <div class="product-action">
-                        
-                            <form class="view-from" action="">
-                                <button><i class="fa-regular fa-eye"></i>
-                                    View Product</button>
-                            </form>
-                            <form class="cart-from" action="">
-                                <button>
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    Add to cart</button>
-                            </form>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
+        <% } %> 
     </div>
 </section>

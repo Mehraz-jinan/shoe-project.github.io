@@ -1,6 +1,6 @@
 
 <section id="nav-part">
-      <div class="container-fluid">
+      <div class="container">
           <div class="row">
               <div class="col-8">
                   <div class="main-nav">
@@ -25,15 +25,36 @@
                   <div class="add-to-cart-sign">
                       <div class="cart-setup">
                         
-                                  <a href="/product/checkout" class="add-cart">
-                                    <i class="cart-button fa-solid fa-cart-shopping"></i>
-                                  </a>
-                                  <a href="/product/wishlist" class="add-cart">
-                                    <i class="cart-button fa-regular fa-heart"></i>
-                                  </a>
+                                  
+                                  <% if(!activeUser){ %> 
                                   <a href="/auth" class="add-cart">
                                     <i class="cart-button fa-sharp fa-regular fa-user"></i>
                                   </a>
+                                  <% }else{ %>
+                                    <div class="profile-intro">
+                                        <a href="/product/checkout" class="add-cart">
+                                            <i class="cart-button fa-solid fa-cart-shopping"></i>
+                                          </a>
+                                          <a href="/product/wishlist/<%= activeUser._id  %> " class="add-cart">
+                                            <i class="cart-button fa-regular fa-heart"></i>
+                                          </a>
+                                        <img class="img-fluid" id="profile-image" src="/images/banner/banner-1.jpg" alt="profile-image">
+                                        
+                                    </div>
+
+                                    <div id="drop-menu" class="menu-dropdown-show">
+                                        <p>
+                                            <%= activeUser.username  %> 
+                                        </p>
+                                      
+                                        <a href="/product/dashboard">Profile</a>
+                                        <a href="">Purchasing History</a>
+                                        <a href="/auth/logout" class="add-cart">
+                                            <i class="cart-button  fa-solid  fa-arrow-right-from-bracket"></i>
+                                          </a>
+                                    </div>
+                                  
+                                  <% } %> 
                                   
                                   
                       </div>

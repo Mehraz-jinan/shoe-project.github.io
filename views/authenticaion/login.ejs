@@ -1,4 +1,4 @@
-<% layout('./layout/boilerplate') %>
+<% layout('layout/boilerplate') %> 
 <section id="auth">
     <div class="container-fluid">
        <div class="row">
@@ -15,14 +15,15 @@
                     </small>
                 </div>
             <div class="sign-in-form">
-                <form action="" method="POST">
+                <form action="/auth/login" method="POST">
                     <div class="form-decor">
                         <label for="username"> 
                             <p>
                                 Phone Number/E-mail:
                             </p>
                         </label>
-                        <input type="text"id="username">
+                                    <input type="text" id="username" name="username">
+                                        </input>
                     </div>
                     <div class="form-decor">
                         <label for="password"> 
@@ -30,7 +31,7 @@
                                Password:
                             </p>
                         </label>
-                        <input type="text"id="password">
+                        <input type="text"id="password" name="password">
                     </div>
                     <div class="sign-in-button">
                         <button>Sign in</button>
@@ -54,38 +55,39 @@
                     </small>
                 </div>
             <div class="sign-in-form">
-                <form action="" method="POST">
+                <form action="/auth/register" method="POST">
                     <div class="form-decor">
                         <label for="username"> 
                             <p>
                                 Name:
                             </p>
                         </label>
-                        <input type="text"id="username">
+                                    <input type="text" id="username" name="username">
+                                        </input>
                     </div>
                     <div class="form-decor">
-                        <label for="username"> 
+                        <label for="usermail"> 
                             <p>
                                 E-mail:
                             </p>
                         </label>
-                        <input type="text"id="username">
+                        <input type="email"id="usermail" name="email">
                     </div>
                     <div class="form-decor">
-                        <label for="username"> 
+                        <label for="usercontact"> 
                             <p>
                                 Contact:
                             </p>
                         </label>
-                        <input type="text"id="username">
+                        <input type="number"id="usercontact" name="contact">
                     </div>
                     <div class="form-decor">
-                        <label for="username"> 
+                        <label for="userpass"> 
                             <p>
                                 Password:
                             </p>
                         </label>
-                        <input type="text"id="username">
+                        <input type="text"id="userpass" name="password">
                     </div>
                     <div class="form-decor">
                         <label for="password"> 

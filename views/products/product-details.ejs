@@ -2,6 +2,7 @@
 <%- include('../partial/navbar')  %> 
 <section id="view-product">
     <div class="container-fluid">
+        
         <div class="row g-0">
             <div class="col-lg-6">
                 <div class="product-view-img">
@@ -52,6 +53,7 @@
                            <%= findProduct.productAvaility  %> 
                         </div>
                     </div>
+                    
                     <div class="product-color" id="color">
                         <div class="red"></div>
                         <div class="green"></div>
@@ -69,12 +71,130 @@
                             <option value="<%= findProduct.productSize  %>" selected><%= findProduct.productSize  %></option>
                         </select>
                     </div>
-                    <div class="action-button">
-                        <a href="/product/checkout">Add to cart</a>
-                        <a href="/product/wishlist">Add to Wishlist</a>
+                    
+                    <% if(!activeUser || !activeUser.auth){  %> 
+                        <div class="action-button">
+                            <form action="/product/checkout/<%= findProduct._id  %>" method="POST">
+                                <div class="product-quantity">
+                                    <div class="quantity">
+                                        <input type="text" name="productQuantity">
+                                    </div>
+                                </div>
+                                <button>Add To Cart</button>
+                            </form>
+                            <form action="/product/wishlist/<%= findProduct._id  %>" method="POST">
+                                <button>Add To Wish List</button>
+                            </form>
+                        </div>
+                    <% }else{ %>
+                        <div class="action-button">
+                            <a href='/product/<%= findProduct._id %>/edit'>Edit</a>
+                        <form action="/product/delete/<%= findProduct._id  %>?_method=DELETE" method="POST">
+                            <button>Delete</button>
+                        </form>
                     </div>
+                       <% } %>     
+                    
+                    
                 </div>
             </div>
         </div>
     </div>
+    <hr>
+    <div class="product-review">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    
+                    <div class="main-review">
+                        <% if(activeUser){ %> 
+                        <div class="review-heading">
+                            <p>Write a review about <%= findProduct.productName  %> </p>
+                        </div>
+                        <div class="review-maker">
+           
+                <form action='/product/product-view/<%=findProduct._id  %>/review/<%= activeUser._id  %> ' method='POST'>
+                    <input type="text" placeholder="Write Your Review" name="review">
+                    <button>Review</button>
+                </form>
+               
+            </div>
+            <% } %> 
+                      <% for(let review of findProduct.review){ %> 
+                        <hr>
+                        <div class="review-lookup">
+                            <div class="userheading">
+                                <img class="img-fluid" src="https://img.freepik.com/free-psd/grunge-metallic-text-effect_125540-1527.jpg?w=996&t=st=1672146935~exp=1672147535~hmac=5bc9f28b517eedc9ccb5fe6269b911359422bb707b24c5c861c47999c9c5360b" alt="profile-img">
+                                <p>
+                                   <%= review.reviewOwner.username %> 
+                                </p>
+                            </div>
+                            <div class="main-content">
+                                <p>
+                                    <%= review.review  %> 
+                                </p>
+                            </div>
+                            <div class="reply">
+                                
+                                <% if(activeUser && review.reviewOwner.equals(activeUser._id)){ %> 
+                                    <a href= '/product/product-view/<%=findProduct._id %>/review/<%= review._id  %>/edit ' title="Edit comment" id="comment-reply">Edit Comment</a>
+                                    
+                                    <form action="/product/product-view/<%= findProduct._id  %>/review/<%= review._id  %>?_method=DELETE" method="POST">
+                                     <button>Delete</button>
+                                    </form>
+                                <% } %> 
+                                    
+                            </div>
+                            
+                            <h3>Replies to  <%= review.reviewOwner.username  %>'s Review</h3>
+                           
+                                <div class="sub-review">
+                                    <% for(let subreview of review.subReview){ %>
+                                        <div class="commentetor-name">
+                                            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="img-fluid">
+                                            <p>
+                                                <%= subreview.userId.username %> 
+                                            </p>
+                                        </div>
+                                       
+                                        <div class="main-comment">
+                                            <p>
+                                            <%= subreview.subReview  %> 
+                                        </p>
+                                        </div>
+                                        
+                                        <div class="sub-button">
+                                            <% if(activeUser && subreview.userId.equals(activeUser._id)){ %> 
+                                            <a href= '' title="Edit comment" id="comment-reply">Edit Comment</a>
+                                    
+                                            <form title="Delete comment" action="" method="POST">
+                                             <button>Delete</button>
+                                            </form>
+                                        </div>
+                                        <% } %> 
+                                    
+                                    <% } %> 
+                                </div>
+                            
+                            <div class="review-maker" id="show-form">
+                            <% if(activeUser){ %> 
+                                <form action="/product/product-view/<%= findProduct._id %>/review/<%= review._id  %>/comment" method="POST">
+                                    <input type="text" placeholder="Reply To This Review" name="subReview">
+                                    <button>Reply</button>
+                                </form>
+                            <% } %> 
+                            </div>
+                        </div>
+                        
+                        <% } %> 
+                    
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+  
 </section> 

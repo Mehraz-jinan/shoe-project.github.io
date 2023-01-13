@@ -1,0 +1,28 @@
+<% layout('layout/boilerplate.ejs') %>
+<section id="review-edit">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 m-auto">
+                <div class="backto-product">
+                    <a href="/product/product-view/<%- findReviewProduct._id  %> ">
+                       <p> 
+                        <i class="fa-solid fa-arrow-left px-3"></i>Back to the Product
+                        
+                    </p>
+                       </a>
+                       
+                </div>
+                <form action="/product/<%= findReviewProduct._id  %>/review/<%= findReview._id  %>/edit?_method=PUT" method="POST">
+                    <div class="edit-form">
+                    <textarea name="review">
+                        <%= findReview.review  %> 
+                    </textarea>
+                </div>
+                <div class="edit-form-button">
+                    <button>Edit Review</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,74 @@
+<%- layout('layout/boilerplate')  %> 
+<section id="auth">
+<div class="container-fluid">
+    <div class="row ">
+        <%- include('../partial/dashboard-navbar.ejs')  %> 
+        <div class="col-md-8">
+            <div class="sign-in">
+                <div class="sign-in-header">
+                    <p>
+                        Add Member
+                    </p>
+                    <small>
+                       <p>Create An Author
+                        </p>
+                    </small>
+                </div>
+            <div class="sign-in-form">
+                <form action="/auth/author" method="POST">
+                    <div class="form-decor">
+                        <label for="username"> 
+                            <p>
+                                Name:
+                            </p>
+                        </label>
+                                    <input type="text" id="username" name="username">
+                                        </input>
+                    </div>
+                    <div class="form-decor">
+                        <label for="usermail"> 
+                            <p>
+                                E-mail:
+                            </p>
+                        </label>
+                        <input type="email"id="usermail" name="email">
+                    </div>
+                    <div class="form-decor">
+                        <label for="usercontact"> 
+                            <p>
+                                Contact:
+                            </p>
+                        </label>
+                        <input type="number"id="usercontact" name="contact">
+                    </div>
+                    <div class="form-decor">
+                        <label for="userpass"> 
+                            <p>
+                                Password:
+                            </p>
+                        </label>
+                        <input type="text"id="userpass" name="password">
+                    </div>
+                    <div class="form-decor">
+                        <label for="role"> 
+                            <p>
+                               Select Role:
+                            </p>
+                        </label>
+                        <select name="auth" id="role">
+                            <option value="">Select Role</option>
+                            <option value="admin">admin</option>
+                            <option value="editor">editor</option>
+                            <option value="moderator">moderator</option>
+                        </select>
+                    </div>
+                    <div class="sign-in-button">
+                        <button>New Author</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>

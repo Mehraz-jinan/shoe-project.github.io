@@ -1,4 +1,14 @@
-// nav js
+
+  $(document).ready(function () {
+    $('#autoWidth').lightSlider({
+        autoWidth:true,
+        loop:true,
+        onSliderLoad: function() {
+            $('#autoWidth').removeClass('cS-hidden');
+        } 
+    });  
+  });
+
 const selectMenu = document.querySelector('#main-menu');
 const selectToggle = document.querySelector('#toggle-icon');
 selectToggle.addEventListener('click', () => {
@@ -7,15 +17,32 @@ selectToggle.addEventListener('click', () => {
     
 });
 
-$(document).ready(function () {
-  $('#autoWidth').lightSlider({
-      autoWidth:true,
-      loop:true,
-      onSliderLoad: function() {
-          $('#autoWidth').removeClass('cS-hidden');
-      } 
-  });  
+
+const sideselectMenu = document.querySelector('#side-main-menu');
+const sideselectToggle = document.querySelector('#toggle-icon');
+selectToggle.addEventListener('click', () => {
+    sideselectMenu.classList.toggle('side-nav-menu');
+    sideselectMenu.classList.toggle('side-menu');
+    
 });
+
+
+
+const selectProfile = document.querySelector('#profile-image');
+const selectDropMenu = document.querySelector('#drop-menu');
+selectProfile.addEventListener('click', () => {
+    selectDropMenu.classList.toggle('menu-dropdown');
+    selectDropMenu.classList.toggle('menu-dropdown-show');
+    
+});
+
+
+
+// alert part js
+
+
+
+
 
 
 

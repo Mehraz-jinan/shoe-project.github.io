@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 m-auto">
+            <% if(success && success.length){ %> 
+                <div  class="popup popup-success">
+                    <p>
+                        <%= success %> 
+                    </p>
+                    <i id="cross-mark" class="fa-solid fa-xmark"></i>
+                </div>
+            <% } %> 
+            <% if(error && error.length){ %> 
+                <div class="popup popup-error">
+                    <p>
+                        <%= error %> 
+                    </p>
+                    <i id="cross-mark" class="fa-solid fa-xmark"></i>
+                </div>
+            <% } %> 
+        </div>
+    </div>
+</div>

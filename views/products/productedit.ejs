@@ -1,0 +1,64 @@
+<%- layout('layout/boilerplate')  %> 
+<section id="edit-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="backto-product">
+                    <a href="/product/product-view/<%- findEdit._id  %> ">
+                       <p> 
+                        <i class="fa-solid fa-arrow-left px-3"></i>Back to the Product
+                        
+                    </p>
+                       </a>
+                       
+                </div>
+                <div class="edit-header">
+                    <p>Edit Product</p>
+                </div>
+                <div class="edit-form">
+                    <div class="col-lg-8 offset-2 edit-main-form">
+                        <form action="/product/<%= findEdit._id  %>/edit?_method=PUT" method="POST">
+                            <div class="form-decor">
+                                <label for="image">Enter Your URL Of Image</label>
+                    <input type="text" name="productImage" value="<%= findEdit.productImage  %> ">
+                            </div>
+                            <div class="form-decor">
+                                <label for="productname">Enter The Product Name: </label>
+                    <input type="text" name="productName" id="productname" value="<%= findEdit.productName  %> ">
+                            </div>
+                            <div class="form-decor">
+                                <label for="productdescribe">Tell Something About Your Product:</label>
+                                <textarea name="productDescription" id="productdescribe">
+                                    <%= findEdit.productDescription  %> 
+                                </textarea>
+                            </div>
+                            <div class="form-decor">
+                                <label for="productprice">
+                                    Enter The Price:
+                                </label>
+                                <input type="text" name="productPrice" id="productprice" value="<%= findEdit.productPrice  %>">
+                            </div>
+                            <div class="form-decor">
+                                <label for="available">Is Available</label>
+                    <select name="productAvaility" id="available">
+                        <option value="">Select One</option>
+                        <option value="In Stock">In Stock</option>
+                        <option value="Out Of Stock">Out Of Stock</option>
+                    </select>
+                            </div>
+                            <div class="form-decor">
+                                <label for="size">
+                                    Select The Size:
+                                </label>
+                                <input type="text" name="productSize" id="size" value="<%= findEdit.productSize %> ">
+                            </div>
+                            <div class="sign-in-button">
+                                <button>Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

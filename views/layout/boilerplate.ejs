@@ -26,13 +26,25 @@
 </head>
 <body>
     <%- include('../partial/header-decoration.ejs')  %> 
-    
+    <%- include('../partial/flash.ejs')  %> 
     <%- body %>
     <%- include('../partial/footer.ejs')  %> 
 
     <!-- main javascript file -->
+    <script>
+      
+const selectCross = document.querySelector('#cross-mark');
+const selectPopup = document.querySelector('.popup');
+selectCross.addEventListener('click', () => {
+    selectPopup.classList.toggle('popup');
+    selectPopup.classList.toggle('cross-sign');
+})
+
+
+    </script>
     <script src="/js/jquery-3.6.1.min.js"></script>
     <script src="/js/lightslider.js"></script>
+    
     <script src="/js/app.js"></script>
     <!-- bootstrap setup -->
     <script src="/js/bootstrap.min.js"></script>
