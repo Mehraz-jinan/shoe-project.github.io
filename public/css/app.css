@@ -1991,3 +1991,119 @@ a .cart-button:hover{
     font-weight: 500;
 }
 
+/* User Profile CSS Starts Here*/
+#user{
+    padding: 20px 0px;
+}
+
+#user .main-profile{
+    padding: 30px 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#user .main-profile p{
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+#user .main-profile .profile-img{
+    position: relative;
+}
+#user .main-profile .profile-img a i{
+    position: absolute;
+    left: 76%;
+    top: 73%;
+    color: #011627;
+    font-size: 1.5rem;
+    transform: translateY(50%);
+    
+}
+#user .main-profile img{
+    padding: 2px;
+    border: 2px solid #F0C9B3;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+#user .main-profile div{
+    padding: 10px 0px;
+}
+#user .main-profile h6{
+    font-size: 1.2rem;
+    display: inline;
+    padding-right: 10px;
+}
+
+/* User Edit Info page css */
+
+#user-edit .user-edit-heading p{
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+#user-edit .user-edit-form form{
+    padding: 30px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#user-edit .user-edit-form form .profile-img img{
+    padding: 2px;
+    border: 2px solid #F0C9B3;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#user-edit .user-edit-form form div{
+    padding: 20px 0px;
+}
+#user-edit .user-edit-form form label{
+    padding: 10px 0px;
+
+}
+#user-edit .user-edit-form form input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #011627;
+    outline: none;
+}
+#user-edit .user-edit-form form input:focus{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #011627;
+    outline: none;
+}
+#user-edit .user-edit-form form button{
+    text-align: center;
+    font-weight: 700;
+    color: black;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #011627;
+    padding: 10px 40px;
+    border-radius: 0px;
+    transition: all ease-in 0.5s;
+}
+#user-edit .user-edit-form form button:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);
+    color: #011627;
+    border: 1px solid #fbfbfb;
+}

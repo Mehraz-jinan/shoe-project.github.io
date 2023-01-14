@@ -1,0 +1,57 @@
+<% layout('layout/boilerplate') %>
+<%- include('../partial/navbar.ejs')  %>
+<section id="user-edit">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="user-edit-heading">
+                    <p>Edit Your Information</p>
+                </div>
+                <div class="user-edit-form">
+                    <form action="/user/info/<%= findUser._id  %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <div class="profile-img">
+                        <% if(!findUser.profilePic){ %> 
+                                <img class="img-fluid" src="https://img.freepik.com/premium-psd/character-avatar-3d-illustration_460336-702.jpg?w=740" alt="profile-image" title="Profile picture of <%= findUser.username  %> ">
+                                <div>
+
+
+                            <input type="file" name="profilePic" value="<%= findUser.profilePic  %> ">
+                            <br>
+                            <input type="text" name="profilePic" value="<%= findUser.profilePic  %> "
+                            >
+                            <% }else{ %> 
+                                <div class="profile-img">
+                                    <img class="img-fluid" src="<%= findUser.profilePic  %> " alt="profile-image" title="Profile picture of <%= findUser.username  %> ">
+                                    <div>
+    
+    
+                                <input type="file" name="profilePic" value="<%= findUser.profilePic  %> ">
+                                <br>
+                                <input type="text" name="profilePic" value="<%= findUser.profilePic  %> "
+                                >
+                                <% } %> 
+                        </div>
+                        <div class="contact">
+                            <label for="contact">Change Contact Number:</label>
+                            <input type="text" name="contact" value="<%= findUser.contact %> ">
+                        </div>
+                        <div class="address">
+                            <% if(!findUser.address){ %> 
+                            <label for="address">Set Your Address:</label>  
+                            <input type="text" name="address"> 
+                                <% }else{ %> 
+                            <label for="address">Change Your Address:</label>  
+                            <input type="text" name="address" value="<%= findUser.address  %> "> 
+                            <% } %> 
+                        </div>
+                        <div class="action-button">
+                            <button>
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>  

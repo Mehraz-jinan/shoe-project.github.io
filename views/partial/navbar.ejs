@@ -47,8 +47,12 @@
                                             <%= activeUser.username  %> 
                                         </p>
                                       
-                                        <a href="/product/dashboard">Profile</a>
+                                        <a href="/user/<%= activeUser.username %> ">Profile</a>
+                                        <% if(activeUser && activeUser.auth){ %> 
+                                            <a href="/product/dashboard">Admin dashboard</a>
+                                            <% }else{ %> 
                                         <a href="">Purchasing History</a>
+                                        <% } %> 
                                         <a href="/auth/logout" class="add-cart">
                                             <i class="cart-button  fa-solid  fa-arrow-right-from-bracket"></i>
                                           </a>

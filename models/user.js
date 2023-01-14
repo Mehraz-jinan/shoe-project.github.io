@@ -21,6 +21,12 @@ const newUserSchema = new Schema({
     auth: {
         type: String,
     },
+    address: {
+        type: String,
+    },
+    profilePic: {
+        type: String,
+    },
     product: [
         {
         type: mongoose.Types.ObjectId,

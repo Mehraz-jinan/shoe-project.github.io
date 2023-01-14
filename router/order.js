@@ -17,5 +17,10 @@ router.get('/details', (req, res, next) => {
         title: 'Oder-Processing',
     });
 });
+router.get('/confirm', (req, res, next) => {
+    res.render('../views/dashboard/confirm-order.ejs', {
+        title: "Confirm Order  - list",
+    })
+})
 
 module.exports = router;

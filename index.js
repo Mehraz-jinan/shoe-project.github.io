@@ -22,6 +22,7 @@ const reviewRouter = require('./router/review');
 const authRouter = require('./router/auth-page');
 const landingPageRouter = require('./router/landing-page');
 const orderRouter = require('./router/order');
+const userRouter = require('./router/users');
 
 // Model files included
 const product = require('./models/productModel');
@@ -86,6 +87,7 @@ app.use('/product', productRouter);
 app.use('/auth', authRouter);
 app.use('/', reviewRouter);
 app.use('/order', orderRouter);
+app.use('/user', userRouter);
 
 
 //port setup

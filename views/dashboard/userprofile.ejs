@@ -1,0 +1,57 @@
+<% layout('layout/boilerplate') %>
+<%- include('../partial/navbar.ejs')  %> 
+<section id="user">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="main-profile">
+                    <div class="profile-heading">
+                       <p> Welcome To The Profile <%= activeUser.username  %> 
+                    </p>
+                    </div>
+                    <% if(!findUser.profilePic){ %>
+                        <div class="profile-img">
+                            <img class="img-fluid" src="https://img.freepik.com/premium-psd/character-avatar-3d-illustration_460336-702.jpg?w=740" alt="profile-image" title="Profile picture of <%= activeUser.username  %> ">
+                            <div>
+                                <a href="/user/info/<%= findUser._id  %>/edit " title="Add a Photo">
+                                    <i class="fa fa-camera"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <% }else{ %>  
+                    <div class="profile-img">
+                        <img class="img-fluid" src="https://img.freepik.com/free-photo/full-shot-travel-concept-with-landmarks_23-2149153258.jpg?3&w=900&t=st=1673707484~exp=1673708084~hmac=4e68e283353d9f526623aa1483eac4ab73b4c5b887cf3f9c9bd0da0e2e281b77" alt="profile-image" title="Profile picture of <%= activeUser.username  %> ">
+                    </div>
+                    <% } %> 
+                    <div class="profile-name">
+                        <h6>
+                            <%= findUser.username %> 
+                        </h6>
+                    </div>
+                    <div class="profile-contact">
+                        Contact No: <h6>
+                            <%= findUser.contact  %> 
+                        </h6>
+                    </div>
+                    <div class="profile-contact">
+                        Mail Address: <h6>
+                            <%= findUser.email  %> 
+                        </h6>
+                    </div>
+                    <div class="delivery-address">
+                        <% if(!findUser.address){ %> 
+                            <a href="" title="Add Your Address">Set Your Delivery Address</a>
+                            <% }else{ %> 
+                        Delivery Address: <h6><%= findUser.address  %> </h6>
+                        <% } %> 
+                    </div>
+                    <div class="edit-page">
+                        <a href="/user/info/<%= findUser._id  %>/edit">Edit Information</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

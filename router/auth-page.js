@@ -37,7 +37,7 @@ router.post('/register', async (req, res, next) => {
                 } else {
                     
             req.flash('success', 'successfully created an account');
-            res.redirect('/');
+            res.redirect(`/user/${req.user.username}`);
             next();
                 }
             })
