@@ -3,7 +3,9 @@
 <section id="checkout">
     <div class="container">
         <div class="row gy-2">
-            
+            <% if(!findUser.addtocart){ %>
+                <h2>You haven't add yet to the cart</h2>
+            <% }else{ %>  
             <% for(let cart of findUser.addtocart){ %> 
             <div class="col-lg-4">
                 <div class="product-avatar">
@@ -40,10 +42,8 @@
                     <div class="delivery-address">
                         <i class="fa-solid fa-location-dot"></i>
                         <b>
-                             Main Address
+                             <%= activeUser.address  %> 
                         </b>
-                            <br>
-                       <small>City , Country</small>
                         
                     </div>
                     
@@ -52,6 +52,7 @@
                 </div>
             </div>
             <hr>
+            <% } %> 
             <% } %> 
         </div>
     </div>
@@ -120,7 +121,9 @@
                         </div>
                         <hr>
                         <div class="total-cost">
-                            <p>Subtotal:</p>
+                            <p>Subtotal: 
+                                <%= findUser.productQuantity * findUser.productPrice  %>
+                              </p>
                             <p>
                                  
                             </p>

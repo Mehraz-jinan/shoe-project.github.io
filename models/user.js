@@ -48,6 +48,7 @@ const newUserSchema = new Schema({
 });
 newUserSchema.plugin(passportLocalMongoose, {
     usernameUnique: false,
+    emailUnique: true,
 });
 const User = mongoose.model('User', newUserSchema);
 

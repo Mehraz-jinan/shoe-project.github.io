@@ -17,7 +17,7 @@ router.get('/authmaker' , isLoggedIn , isAuthor ,  (req, res, next) => {
     res.render('../views/dashboard/authmaker.ejs', {
         title: 'Create Author',
     });
-})
+});
 router.post('/register', async (req, res, next) => {
     try {
             const { username, email, contact, password } = req.body;
@@ -36,8 +36,8 @@ router.post('/register', async (req, res, next) => {
                   return next(err);
                 } else {
                     
-            req.flash('success', 'successfully created an account');
-            res.redirect(`/user/${req.user.username}`);
+            req.flash('success', `Set your profile ${req.user.username} to move forward`);
+            res.redirect(`/user/setprofile/${req.user._id}`);
             next();
                 }
             })

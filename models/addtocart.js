@@ -5,7 +5,7 @@ const User = require('./user');
 
 const newCartSchema = new Schema({
     productQuantity: {
-        type: String,
+        type: Number,
     },
     productInfo: {
         type: mongoose.Types.ObjectId,

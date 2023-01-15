@@ -124,7 +124,7 @@
                         <hr>
                         <div class="review-lookup">
                             <div class="userheading">
-                                <img class="img-fluid" src="https://img.freepik.com/free-psd/grunge-metallic-text-effect_125540-1527.jpg?w=996&t=st=1672146935~exp=1672147535~hmac=5bc9f28b517eedc9ccb5fe6269b911359422bb707b24c5c861c47999c9c5360b" alt="profile-img">
+                                <img class="img-fluid" alt="profile-img" src="<%= review.reviewOwner.profilePic  %>">
                                 <p>
                                    <%= review.reviewOwner.username %> 
                                 </p>
@@ -151,7 +151,7 @@
                                 <div class="sub-review">
                                     <% for(let subreview of review.subReview){ %>
                                         <div class="commentetor-name">
-                                            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="img-fluid">
+                                            <img src="<%= subreview.userId.profilePic  %> " alt="" class="img-fluid">
                                             <p>
                                                 <%= subreview.userId.username %> 
                                             </p>

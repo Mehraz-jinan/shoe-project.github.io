@@ -38,6 +38,11 @@ router.get('/product-view/:id', async(req, res, next) => {
                 path: 'userId',
             }
         }
+    }).populate({
+        path: 'addtocart',
+        populate: {
+            path: 'productInfo',
+        },
     });
     res.render('products/product-details.ejs', {
         title: 'product show - page',
@@ -87,15 +92,6 @@ router.get('/checkout', isLoggedIn, async(req, res, next) => {
             path: 'productInfo'
         }
     });
-    const totalQuantity = [];
-    for (let sum of findUser.addtocart) {
-        const findQuantity = sum.productQuantity;
-        const pushing = totalQuantity.push(findQuantity);
-    }
-    for (let i = 0; i < totalQuantity.length; i++){
-        const afterQuantity = i + totalQuantity[i];
-        console.log(afterQuantity)
-    }
 
     
     
@@ -111,10 +107,12 @@ router.post('/checkout/:id', isLoggedIn, async (req, res, next) => {
         const newCart = new Cart(req.body);
         newCart.productInfo = findProduct;
         await newCart.save();
+        findProduct.addtocart = newCart;
         const userId = req.user._id;
         const findUser = await User.findById(userId);
         findUser.addtocart.push(newCart);
         await findUser.save();
+        await findProduct.save();
         req.flash('success', 'Successfully Added To Cart');
         res.redirect(`/product/checkout/`);
     }
