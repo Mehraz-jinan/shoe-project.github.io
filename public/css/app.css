@@ -1125,6 +1125,8 @@ a .cart-button:hover{
     background-color: transparent;
     outline: none;
 }
+
+  
 #view-product .product-review .main-review .review-lookup  .review-maker form button{
     font-weight: 700;
     color: #0d6efd;

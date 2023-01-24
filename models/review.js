@@ -7,6 +7,9 @@ const newReviewSchema = new Schema({
     review: {
         type: String,
     },
+    rating: {
+        type: String,
+    },
     reviewOwner:
         {
             type: mongoose.Types.ObjectId,
