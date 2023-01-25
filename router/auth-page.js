@@ -25,9 +25,10 @@ router.post('/author',
 )
 router.post('/login',
     passport.authenticate('local', {
-    failureFlash: true,
-    failureRedirect: '/auth',
-}), 
+        failureFlash: true,
+        failureRedirect: '/auth',
+
+    }),
     authController.loginFunctionality
 );
 router.get('/logout',
