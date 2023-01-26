@@ -32,6 +32,11 @@
                                     <i class="fa-solid fa-cart-shopping"></i>
                                     Add to cart</button>
                             </form>
+                            <form action="/product/wishlist/<%= wish._id  %>?_method=DELETE  " method="POST">
+                                <button>
+                                    <i class="fa-solid fa-trash" title="Delete Wishlist"></i>
+                                </button>
+                              </form>
                         
                     </div>
                 </div>

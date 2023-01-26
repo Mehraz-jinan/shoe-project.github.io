@@ -1338,7 +1338,13 @@ a .cart-button:hover{
     justify-content: space-between;
     padding: 20px 0px;
 }
-
+#checkout .product-innovoice .product-price form button{
+    border: none;
+}
+#checkout .product-innovoice .product-price form button i{
+    font-weight: 700;
+    color: #011627;
+}
 
 
 #checkout .product-innovoice .product-price  p{

@@ -31,7 +31,10 @@ router.route('/wishlist/:id')
     .post(
         isLoggedIn,
         productController.saveToWishlist
-);
+    )
+    .delete(isLoggedIn,
+        productController.deleteFromWishlist
+)
     
 // Checkout Router
 router.get('/checkout',
@@ -42,7 +45,10 @@ router.post('/checkout/:id',
         isLoggedIn,
         productController.saveToCheckout
 );
-    
+router.delete('/checkout/:cart_id/:id',
+    isLoggedIn,
+    productController.deleteFromCheckout
+);
 
 router.get('/dashboard',
     isLoggedIn,

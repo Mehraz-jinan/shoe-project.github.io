@@ -18,6 +18,7 @@
                         <p>
                             <b>
                                 <%= cart.productInfo.productName  %> 
+                                
                             </b>
                         </p>
                     </div>
@@ -36,7 +37,11 @@
                        
                        <p><%= cart.productInfo.productPrice * cart.productQuantity  %>$ </p>
                        
-                    
+                      <form action="/product/checkout/<%= cart._id  %>/<%= cart.productInfo._id  %>?_method=DELETE  " method="POST">
+                        <button>
+                            <i class="fa-solid fa-trash" title="Delete Cart"></i>
+                        </button>
+                      </form>
                     </div>
                     
                     <div class="delivery-address">

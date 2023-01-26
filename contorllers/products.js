@@ -73,6 +73,21 @@ module.exports.saveToWishlist = async (req, res, next) => {
     
 
 };
+module.exports.deleteFromWishlist = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await User.findByIdAndUpdate(req.user._id, {
+            $pull: {
+                wishlist: id,
+            }
+        });
+        req.flash('success', 'Wishlist deleted Successfully');
+        res.redirect(`/product/wishlist/${req.user._id}`);
+    } catch (error) {
+        req.flash('error', error.message);
+        res.redirect(`/product/wishlist/${req.user._id}`);
+    }
+}
 module.exports.renderCheckout = async (req, res, next) => {
     const findUser = await User.findById(req.user._id).populate({
         path: 'addtocart',
@@ -105,8 +120,29 @@ module.exports.saveToCheckout = async (req, res, next) => {
         req.flash('error', err.message);
         res.redirect('/product/product-showcase');
     }
-    
+};
+module.exports.deleteFromCheckout = async (req, res, next) => {
+    try {
+        const { cart_id, id } = req.params;
+        await Product.findByIdAndUpdate(id, {
+            $pull: {
+                addtocart: cart_id,
+            }
+        });
+        await User.findByIdAndUpdate(req.user._id, {
+            $pull: {
+                addtocart: cart_id,
+            }
+        });
+        const findCartToDelete = await Cart.findByIdAndDelete(cart_id);
+        req.flash('success', 'Cart Deleted Successfully');
+        res.redirect('/product/checkout');
 
+    } catch (error) {
+        req.flash('error', error.message);
+        res.redirect('/product/checkout')
+    }
+    next();
 };
 module.exports.renderDashboard = (req, res, next) => {
     res.render('../views/dashboard/dashboard.ejs', {
