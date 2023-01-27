@@ -54,11 +54,6 @@
                             <%= findProduct.productDescription  %> 
                         </p>
                     </div>
-                    <div class="product-availity">
-                        <div class="available">
-                           <%= findProduct.productAvaility  %> 
-                        </div>
-                    </div>
                     
                     <div class="product-color" id="color">
                         <div class="red"></div>
@@ -188,9 +183,9 @@
                                         
                                         <div class="sub-button">
                                             <% if(activeUser && subreview.userId.equals(activeUser._id)){ %> 
-                                            <a href= '' title="Edit comment" id="comment-reply">Edit Comment</a>
+                                            <a href= '/product/product-view/<%= findProduct._id  %>/review/<%= review._id  %>/subreview/<%= subreview._id  %>/comment/edit' title="Edit comment" id="comment-reply">Edit Comment</a>
                                     
-                                            <form title="Delete comment" action="" method="POST">
+                                            <form title="Delete comment" action="/product/product-view/<%= findProduct._id %>/review/<%= review._id %>/subreview/<%= subreview._id %>/comment?_method=DELETE" method="POST">
                                              <button>Delete</button>
                                             </form>
                                         </div>

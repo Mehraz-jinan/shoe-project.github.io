@@ -36,6 +36,19 @@ router.put('/product/:product_id/review/:id/edit',
 router.post('/product/product-view/:id/review/:reviewId/comment',
     isLoggedIn,
     reviewController.makeSubReview
+);
+router.delete('/product/product-view/:id/review/:reviewId/subreview/:subreviewId/comment',
+    isLoggedIn,
+    reviewController.deleteSubReview,
 )
+router.route('/product/product-view/:id/review/:reviewId/subreview/:subreviewId/comment/edit')
+    .get(
+        isLoggedIn,
+        reviewController.editSubReviewRendering,
+)
+    .put(
+        isLoggedIn,
+        reviewController.editSubreview,
+    )
 
 module.exports = router;

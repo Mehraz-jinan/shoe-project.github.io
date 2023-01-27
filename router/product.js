@@ -56,6 +56,27 @@ router.get('/dashboard',
     productController.renderDashboard
 );
 
+router.get('/unlisted',
+    isLoggedIn,
+    isAuthor,
+    productController.renderingOutOfStockProduct,
+)
+router.route('/unlisted/:id')
+    .get(
+    isLoggedIn,
+    isAuthor,
+    productController.viewOutOfStockProduct,
+)
+    .put(
+        isLoggedIn,
+        isAuthor,
+        productController.activeProduct,
+)
+    .delete(
+        isLoggedIn,
+        isAuthor,
+        productController.deleteFromOutOfStock,
+    )
 // Product add,edit,delete
 router.post('/:id/add',
     isLoggedIn,

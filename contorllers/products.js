@@ -178,10 +178,72 @@ module.exports.renderProductEditForm = async (req, res, next) => {
 };
 module.exports.productEdit = async (req, res, next) => {
     const { id } = req.params;
-    const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { runValidators: true, new: true });
-    req.flash('success', `Updated Successfully`);
-    res.redirect(`/product/product-view/${updatedProduct._id}`);
+    const content = req.body;
+    console.log(req.body);
+    if (content.productImage && content.productName && content.productDescription && content.productPrice && content.productAvaility && content.productSize){
+        const updatedProduct = await Product.findByIdAndUpdate(id, content, { runValidators: true, new: true });
+        req.flash('success', `Updated Successfully`);
+        console.log(updatedProduct);
+        res.redirect(`/product/product-view/${updatedProduct._id}`);
+    } else {
+        req.flash('error', 'You missed something to insert');
+        res.redirect(`/product/${id}/edit`);
+    }
 };
+module.exports.renderingOutOfStockProduct = async (req, res, next) => {
+    const findProduct = await Product.find({
+        productAvaility: 'Out Of Stock'
+    });
+    res.render('../views/dashboard/outofstock.ejs', {
+        title: 'Unlisted Products',
+        findProduct,
+    })
+};
+module.exports.viewOutOfStockProduct = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const findProduct = await Product.findById(id);
+        res.render('../views/dashboard/outofstockdetails.ejs', {
+            title: `${findProduct.productName} - views`,
+            findProduct,
+        }
+        );
+    } catch (error) {
+        req.flash('error', `Something Went Wrong ${error.message}`);
+        res.redirect(`/product/uslisted/${id}`);
+    }
+};
+module.exports.activeProduct = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await Product.findByIdAndUpdate(id, {
+            productAvaility: 'In Stock',
+        },
+            {
+                runValidators: true,
+                new: true,
+            });
+        req.flash('success', 'Product Activated');
+        res.redirect(`/product/product-view/${id}`);
+        
+    } catch (error) {
+        req.flash('error', 'Something Went Wrong ${error.message}');
+        res.redirect(`/product/unlisted/${id}`);
+    }
+    next()
+};
+module.exports.deleteFromOutOfStock = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await Product.findByIdAndDelete(id);
+        req.flash('success', 'Product Deleted Successfully');
+        res.redirect(`/product/product-showcase`);
+    } catch (error) {
+        req.flash('error', `Something Went Wrong`);
+        res.redirect(`/product/product-showcase`);
+    };
+};
+
 module.exports.productDelete = async (req, res, next) => {
     const { id } = req.params;
     const deleteProduct = await Product.findByIdAndDelete(id);

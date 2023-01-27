@@ -1,0 +1,35 @@
+<% layout('layout/boilerplate') %> 
+<section id="order">
+    <div class="container-fluid">
+        <div class="row">
+            <%- include('../partial/dashboard-navbar.ejs') %> 
+            <div class="col-md-8">
+                <div class="order-heading">
+                    <p>Unlisted/Out Of Stock Products</p>
+                </div>
+                <% if(!findProduct.length){ %>
+                    <%- include('../partial/empty-field.ejs')  %> 
+                    <% }else{ %> 
+                <% for(let product of findProduct){ %> 
+                    <div class="all-order">
+                    <div class="product-summary">
+                        <div class="product-img">
+                            <img class="img-fluid" src="<%= product.productImage  %> " alt="All-order-photo">
+                        </div>
+                        <div class="product-info">
+                            <p>
+                                <%= product.productName  %> 
+                            </p>
+                        </div>
+                        <div class="action-button">
+                            <a href="/product/unlisted/<%= product._id  %> ">View Product</a>
+                        </div>
+                    </div>   
+                    </div>
+                    <hr>
+                <% } %> 
+                <% } %> 
+            </div>
+        </div>
+    </div> 
+</section>

@@ -24,6 +24,15 @@ const newReviewSchema = new Schema({
 
 
 });
+newReviewSchema.post('findOneAndDelete', async (doc) => {
+    if (doc) {
+        await Subreview.deleteMany({
+            _id: {
+                $in: doc.subReview,
+            }
+        });
+    }
+});
 const Review = mongoose.model('Review', newReviewSchema);
 
 module.exports = Review;

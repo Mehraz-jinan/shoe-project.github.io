@@ -41,9 +41,8 @@
                             <div class="form-decor">
                                 <label for="available">Is Available</label>
                     <select name="productAvaility" id="available">
-                        <option value="">Select One</option>
-                        <option value="In Stock">In Stock</option>
-                        <option value="Out Of Stock">Out Of Stock</option>
+                        <option value="In Stock" <%= findEdit.productAvaility === 'In Stock' ? 'selected' : ''  %>  > In Stock </option>
+                        <option value="Out Of Stock" <%= findEdit.productAvaility === 'Out Of Stock' ? 'selected' : ''  %> >Out Of Stock </option>
                     </select>
                             </div>
                             <div class="form-decor">

@@ -19,10 +19,14 @@ const newProductSchema = new Schema({
     },
     productAvaility: {
         type: String,
+        enum: ['In Stock' , 'Out Of Stock'],
     },
     productSize: 
         {
             type: String,
+    },
+    category: {
+        type: String,
     },
    
     creator:
@@ -55,7 +59,6 @@ const newProductSchema = new Schema({
 });
 newProductSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
-        console.log(doc);
         await Review.deleteMany({
             _id: {
                 $in: doc.review,

@@ -1,0 +1,43 @@
+<% layout('layout/boilerplate') %>
+<section id="order-details">
+<div class="container-fluid">
+    <div class="row">
+        <%- include('../partial/dashboard-navbar.ejs')  %> 
+        <div class="col-md-8">
+            <div class="main-order">
+                <div class="order-receive">
+                    <div class="order-heading">
+                        <p>
+                            Details Of Unlisted Items
+                        </p>
+                    </div>
+                     
+                    <div class="order-content">
+                        <div class="product-image">
+                            <img class="img-fluid" src="<%= findProduct.productImage  %> " alt="cart-added-image">
+                        </div>
+                        <div class="product-info">
+                            <p>
+                            <span><%= findProduct.productName  %> </span>
+                        </p>
+                            <p><label for=""> Product Price:</label> <%= findProduct.productprice %> </p>
+                            <p><label for=""> Sizes Available:</label> <%= findProduct.productSize  %> </p>
+                            <p><label for=""> Category It Listed:</label><%= findProduct.category  %> </p>
+                        </div>
+                        <div class="action-button">
+                            <form action="/product/unlisted/<%= findProduct._id %>?_method=PUT" method="POST">
+                                <button>Active Product</button>
+                            </form>
+                            <form action="/product/unlisted/<%= findProduct._id %>?_method=DELETE "method="POST">
+                                <button>Delete Permanently</button>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div> 
+</section>

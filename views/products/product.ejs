@@ -9,6 +9,8 @@
                 <h1>No data to show</h1>
             <% }else{ %> 
                 <% for(let product of products){ %>
+                    <% if(product.productAvaility === 'Out Of Stock'){ %>
+                    <% }else{ %>  
                     <div class="col-md-4">
                         <div class="product-details">
                             <div class="card-main">
@@ -32,6 +34,7 @@
                                            <b>User Experience:</b> Fully Comfortable
                                         </p>
                                         <p>
+                                        <p>
                                            <b>Review:</b> 4.5/5
                                         </p>
                                     </div>
@@ -43,7 +46,7 @@
                         </div>
                         <hr class="d-none d-md-block">
                     </div>
-                    
+                    <% } %> 
                     <% } %> 
             <% } %> 
             
