@@ -28,16 +28,46 @@
                 <div class="product-availity">
                     <label for="available">Is Available</label>
                     <select name="productAvaility" id="available">
-                        <option value="">Select One</option>
                         <option value="In Stock">In Stock</option>
                         <option value="Out Of Stock">Out Of Stock</option>
                     </select>
+                    <small class="text-muted">
+                        *If you want to publish the product later select <b>out of stock</b>
+                        you can find it in the unlisted directory 
+                        <a href="/product/unlisted">See your post</a>
+
+                    </small>
                 </div>
                 <div class="product-size">
                     <label for="size">
-                        Select The Size:
+                        Available Sizes:
                     </label>
                     <input type="text" name="productSize" id="size">
+                </div>
+                <div class="product-color">
+                    <label for="color">
+                        Available Colors:
+                    </label>
+                    <input type="text" name="productColor" id="color">
+                </div>
+                <div class="product-categpryy">
+                    <label for="category">
+                        Select The Category:
+                    </label>
+                    <select name="category" id="category">
+                        <% for(let category of categories){ %> 
+                            <option value="<%= category %> ">
+                                <%= category  %> 
+                            </option>
+                        <% } %> 
+                    </select>
+                </div>
+                or,
+                <div class="product-category">
+                    <label for="category">
+                        Create new category:
+                    </label>
+                    <input type="text" name="newCategory">
                 </div>
                 <div class="form-button">
                     <button>

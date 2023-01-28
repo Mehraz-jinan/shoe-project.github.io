@@ -54,22 +54,24 @@
                             <%= findProduct.productDescription  %> 
                         </p>
                     </div>
-                    
-                    <div class="product-color" id="color">
-                        <div class="red"></div>
-                        <div class="green"></div>
-                        <div class="yellow"></div>
-                        <div class="violet"></div>
-                        <div class="purple"></div>
-                        <div class="blue"></div>
+                    <div class="sizes" id="color">
+                        <div class="size-header">Choose Color:</div>
+                        <select name="productColor" id="color">
+                            <% for(let color of findProduct.productColor){ %> 
+                                <option value="<%= color  %> ">
+                                    <%= color %> 
+                                </option>
+                            <% } %> 
+                        </select>
                     </div>
                     <div class="sizes">
                         <div class="size-header">Choose Size:</div>
-                        <select name="size" id="size">
-                            <option value="" selected>Choose Your size</option>
-                            <option value="<%= findProduct.productSize  %> " selected><%= findProduct.productSize  %></option>
-                            <option value="<%= findProduct.productSize  %>" selected><%= findProduct.productSize  %></option>
-                            <option value="<%= findProduct.productSize  %>" selected><%= findProduct.productSize  %></option>
+                        <select name="productSize" id="size">
+                            <% for(let size of findProduct.productSize){ %> 
+                                <option value="<%= size  %> selected">
+                                    <%= size %> 
+                                </option>
+                            <% } %> 
                         </select>
                     </div>
                     

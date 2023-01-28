@@ -3,10 +3,14 @@ const User = require('../models/user');
 const Cart = require('../models/addtocart');
 const Review = require('../models/review');
 const Subreview = require('../models/sub-review');
+let categories = ["Cloths", "Shoes", "Women's Cloth", "Jacket", "Kids", "Man Watch", "Womens's Watch"];
+
 
 module.exports.showProducts = async (req, res, next) => {
     const products = await Product.find();
-    res.render('../views/products/product.ejs', { products, title: 'Product - page' });
+    res.render('../views/products/product.ejs', {
+        products, title: 'Product - page',
+    });
 
     next();
 };
@@ -104,7 +108,10 @@ module.exports.saveToCheckout = async (req, res, next) => {
     try {
         const { id } = req.params;
         const findProduct = await Product.findById(id);
-        const newCart = new Cart(req.body);
+        const newCart = new Cart({
+            productQuantity: req.body.productQuantity,
+            cartSize: req.body.productSize,
+        });
         newCart.productInfo = findProduct;
         await newCart.save();
         findProduct.addtocart = newCart;
@@ -147,6 +154,7 @@ module.exports.deleteFromCheckout = async (req, res, next) => {
 module.exports.renderDashboard = (req, res, next) => {
     res.render('../views/dashboard/dashboard.ejs', {
         title: 'Seller - Dashboard',
+        categories,
     });
     next();
 };
@@ -154,11 +162,29 @@ module.exports.createProduct = async (req, res, next) => {
     const { id } = req.params;
     const findAuthor = await User.findById(id);
     const content = req.body;
-    if (!content.productImage || !content.productName || !content.productDescription || !content.productPrice || !content.productAvaility || !content.productSize) {
+    if (!content.productImage || !content.productName || !content.productDescription || !content.productPrice || !content.productAvaility || !content.productSize || !content.productColor || !content.category) {
         req.flash('error', 'Please Insert Everything');
         return res.redirect('/product/dashboard');
     } else {
-        const newProduct = new Product(content);
+        const newProduct = new Product({
+            productImage: content.productImage,
+            productName: content.productName,
+            productDescription: content.productDescription,
+            productPrice: content.productPrice,
+            productAvaility: content.productAvaility,
+        });
+        const addToCategory = categories.unshift(content.newCategory);
+        if (content.newCategory) {
+            newProduct.category = content.newCategory
+        } else {
+            newProduct.category = content.category
+        };
+        const size = content.productSize;
+        const spliteSize = size.split(',');
+        newProduct.productSize = spliteSize;
+        const colors = content.productColor;
+        const spliteColor = colors.split(',');
+        newProduct.productColor = spliteColor;
         const addProduct = findAuthor.product.push(newProduct);
         const addCreator = newProduct.creator.push(findAuthor);
         findAuthor.save();
@@ -179,12 +205,34 @@ module.exports.renderProductEditForm = async (req, res, next) => {
 module.exports.productEdit = async (req, res, next) => {
     const { id } = req.params;
     const content = req.body;
-    console.log(req.body);
+    const size = content.productSize;
+    const sizeSplit = size.split(',');
+    const colors = content.productColor;
+    const colorSplit = colors.split(',');
     if (content.productImage && content.productName && content.productDescription && content.productPrice && content.productAvaility && content.productSize){
-        const updatedProduct = await Product.findByIdAndUpdate(id, content, { runValidators: true, new: true });
-        req.flash('success', `Updated Successfully`);
-        console.log(updatedProduct);
-        res.redirect(`/product/product-view/${updatedProduct._id}`);
+        const updatedProduct = await Product.findByIdAndUpdate(id, {
+            productImage: content.productImage,
+            productName: content.productName,
+            productDescription: content.productDescription,
+            productPrice: content.productPrice,
+            productAvaility: content.productAvaility,
+            productSize: sizeSplit,
+            productColor: colorSplit,
+        },
+
+            {
+                runValidators: true,
+                new: true
+            });
+        
+        if (updatedProduct.productAvaility === 'Out Of Stock') {
+            req.flash('success', 'You unlist the product');
+            res.redirect(`/product/unlisted/${id}`);
+        } else {
+            req.flash('success', `Updated Successfully`);
+            console.log(updatedProduct);
+            res.redirect(`/product/product-view/${updatedProduct._id}`);
+        }
     } else {
         req.flash('error', 'You missed something to insert');
         res.redirect(`/product/${id}/edit`);
@@ -237,7 +285,7 @@ module.exports.deleteFromOutOfStock = async (req, res, next) => {
         const { id } = req.params;
         await Product.findByIdAndDelete(id);
         req.flash('success', 'Product Deleted Successfully');
-        res.redirect(`/product/product-showcase`);
+        res.redirect(`/product/unlisted`);
     } catch (error) {
         req.flash('error', `Something Went Wrong`);
         res.redirect(`/product/product-showcase`);

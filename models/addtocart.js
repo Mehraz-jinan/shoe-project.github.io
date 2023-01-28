@@ -7,6 +7,9 @@ const newCartSchema = new Schema({
     productQuantity: {
         type: Number,
     },
+    productSize: {
+        type: String,
+    },
     productInfo: {
         type: mongoose.Types.ObjectId,
         ref: 'Product',

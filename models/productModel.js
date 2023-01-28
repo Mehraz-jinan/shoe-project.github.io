@@ -21,10 +21,16 @@ const newProductSchema = new Schema({
         type: String,
         enum: ['In Stock' , 'Out Of Stock'],
     },
-    productSize: 
+    productSize:
         {
-            type: String,
-    },
+            type: [String],
+            
+        }
+    ,
+    productColor: 
+    {
+            type: [String],
+        },
     category: {
         type: String,
     },

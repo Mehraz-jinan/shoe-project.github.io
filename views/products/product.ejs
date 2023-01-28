@@ -6,7 +6,7 @@
 
         <div class="row">
              <% if(!products.length){ %> 
-                <h1>No data to show</h1>
+                <%- include('../partial/empty-field.ejs')  %> 
             <% }else{ %> 
                 <% for(let product of products){ %>
                     <% if(product.productAvaility === 'Out Of Stock'){ %>

@@ -2,6 +2,9 @@
 <%- include('../partial/navbar')  %> 
 <section id="wishlist">
     <div class="container">
+        <% if(!wishUser.wishlist.length){ %> 
+            <%- include('../partial/empty-field.ejs') %> 
+            <% }else{ %> 
         <% for(let wish of wishUser.wishlist){ %> 
         <div class="row">
             <div class="col-lg-4">
@@ -44,5 +47,7 @@
         </div>
         <hr>
         <% } %> 
+        <% } %> 
     </div>
+   
 </section>
