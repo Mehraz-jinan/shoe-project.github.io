@@ -23,13 +23,13 @@ const newProductSchema = new Schema({
     },
     productSize:
         {
-            type: [String],
+            type: Array,
             
         }
     ,
     productColor: 
     {
-            type: [String],
+            type: Array,
         },
     category: {
         type: String,

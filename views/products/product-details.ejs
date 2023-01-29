@@ -36,6 +36,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="product-view-details">
+                    <a href="/product/product-showcase?category=<%= findProduct.category %>"><%= findProduct.category %></a>
                     <div class="product-name">
                         <p>
                             <b>
@@ -54,39 +55,49 @@
                             <%= findProduct.productDescription  %> 
                         </p>
                     </div>
-                    <div class="sizes" id="color">
-                        <div class="size-header">Choose Color:</div>
-                        <select name="productColor" id="color">
-                            <% for(let color of findProduct.productColor){ %> 
-                                <option value="<%= color  %> ">
-                                    <%= color %> 
-                                </option>
-                            <% } %> 
-                        </select>
-                    </div>
-                    <div class="sizes">
-                        <div class="size-header">Choose Size:</div>
-                        <select name="productSize" id="size">
-                            <% for(let size of findProduct.productSize){ %> 
-                                <option value="<%= size  %> selected">
-                                    <%= size %> 
-                                </option>
-                            <% } %> 
-                        </select>
-                    </div>
+                    
                     
                     <% if(!activeUser || !activeUser.auth){  %> 
-                        <div class="action-button">
+                        <div class="customer-button">
                             <form action="/product/checkout/<%= findProduct._id  %>" method="POST">
-                                <div class="product-quantity">
-                                    <div class="quantity">
-                                        <input type="Number" name="productQuantity" value="1">
-                                    </div>
+                                <div class="sizes" id="color">
+                                    <div class="size-header">Choose Color:</div>
+                                    <select name="cartProductColor" id="color">
+                                        <% for(let color of findProduct.productColor){ %> 
+                                            <option value="<%= color  %> ">
+                                                <%= color %> 
+                                            </option>
+                                        <% } %> 
+                                    </select>
                                 </div>
-                                <button>Add To Cart</button>
+                                <div class="sizes">
+                                    <div class="size-header">Choose Size:</div>
+                                    <select name="cartProductSize" id="size">
+                                        <% for(let size of findProduct.productSize){ %> 
+                                            <option value="<%= size  %>">
+                                                <%= size %> 
+                                            </option>
+                                        <% } %> 
+                                    </select>
+                                </div>
+                                <div class="sizes">
+                                    <div class="size-header">Select Quantity:</div>
+                                    <input type="text" name="productQuantity" value="1">
+                                </div>
+                                <div class="cartButton">
+                                    <button>
+                                        
+                                        <i class="fa fa-cart-plus">
+                                            
+                                        </i>Add to the cart
+                                    </button>
+                                </div>
                             </form>
                             <form action="/product/wishlist/<%= findProduct._id  %>" method="POST">
-                                <button>Add To Wish List</button>
+                                <div class="cartButton">
+                                    <button title="Add to wishlist">	
+                                        <i class="fa fa-heart"></i>Add To Wishlist</button>
+                                </div>
                             </form>
                         </div>
                     <% }else{ %>

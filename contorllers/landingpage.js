@@ -14,6 +14,7 @@ module.exports.index = async (req, res, next) => {
         lastProduct,
         secondLast,
         thirdLast,
+        productConfig,
     });
     next();
 };

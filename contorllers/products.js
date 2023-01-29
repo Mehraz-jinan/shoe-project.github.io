@@ -3,17 +3,30 @@ const User = require('../models/user');
 const Cart = require('../models/addtocart');
 const Review = require('../models/review');
 const Subreview = require('../models/sub-review');
-let categories = ["Cloths", "Shoes", "Women's Cloth", "Jacket", "Kids", "Man Watch", "Womens's Watch"];
-
+const { find } = require('../models/addtocart');
+let categories = ["cloths","shoes","women's Cloth","jacket","kids","men Watch","womens's Watch"];
 
 module.exports.showProducts = async (req, res, next) => {
-    const products = await Product.find();
-    res.render('../views/products/product.ejs', {
-        products, title: 'Product - page',
-    });
+    const { category } = req.query;
+    if (category) {
+        const products = await Product.find({
+            category
+        })
+        res.render('../views/products/product.ejs', {
+            products, title: `${category} - page`,
+            category,
+        });
+    } else {
+        const products = await Product.find({});
+        res.render('../views/products/product.ejs', {
+            products, title: 'Product - page',
+            category: 'All Products'
+        });
+    }
 
     next();
 };
+
 module.exports.viewIndividualProduct = async (req, res, next) => {
     const { id } = req.params;
     const findProduct = await Product.findById(id).populate('creator').populate({
@@ -110,7 +123,8 @@ module.exports.saveToCheckout = async (req, res, next) => {
         const findProduct = await Product.findById(id);
         const newCart = new Cart({
             productQuantity: req.body.productQuantity,
-            cartSize: req.body.productSize,
+            cartProductColor: req.body.cartProductColor,
+            cartProductSize: req.body.cartProductSize,
         });
         newCart.productInfo = findProduct;
         await newCart.save();
@@ -173,8 +187,9 @@ module.exports.createProduct = async (req, res, next) => {
             productPrice: content.productPrice,
             productAvaility: content.productAvaility,
         });
-        const addToCategory = categories.unshift(content.newCategory);
+       
         if (content.newCategory) {
+                const addToCategory = categories.unshift(content.newCategory);
             newProduct.category = content.newCategory
         } else {
             newProduct.category = content.category

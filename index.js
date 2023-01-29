@@ -25,7 +25,7 @@ const orderRouter = require('./router/order');
 const userRouter = require('./router/users');
 
 // Model files included
-const product = require('./models/productModel');
+const Product = require('./models/productModel');
 const User = require('./models/user');
 const Review = require('./models/review');
 const Subreview = require('./models/sub-review');

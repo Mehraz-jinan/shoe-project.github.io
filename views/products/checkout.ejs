@@ -19,6 +19,7 @@
                         <a title="View The Product" href="/product/product-view/<%= cart.productInfo._id  %> ">
                             <small>View The Product</small>
                         </a>
+                        
                     </div>
                     <div class="product-title">
                         <p>
@@ -27,6 +28,7 @@
                                 
                             </b>
                         </p>
+                        <a href="/product/product-showcase?category=<%= cart.productInfo.category %>"><%= cart.productInfo.category %></a>
                     </div>
                     <div class="product-price">
                        <p class="text-muted">
@@ -38,8 +40,6 @@
                         </small>
                         &#10132;
                     </p>
-                        
-                       
                        <p><%= cart.productInfo.productPrice * cart.productQuantity  %>$ </p>
                        
                       <form action="/product/checkout/<%= cart._id  %>/<%= cart.productInfo._id  %>?_method=DELETE  " method="POST">
@@ -48,7 +48,18 @@
                         </button>
                       </form>
                     </div>
-                    
+                    <div class="product-price text-muted">
+                        <p>
+                            <small class="">
+                              Choosen Size: <%= cart.cartProductSize %> 
+                            </small>
+                        </p>
+                        <p>
+                            <small class="">
+                             Choosen Color: <%= cart.cartProductColor %> 
+                            </small>
+                        </p>
+                    </div>
                     <div class="delivery-address">
                         <i class="fa-solid fa-location-dot"></i>
                         <b>

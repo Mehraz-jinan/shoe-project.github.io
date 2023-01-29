@@ -13,7 +13,7 @@
                       </div>
                       <div id="main-menu" class="menu">
                           <a class="nav-link" href="/">home</a>
-                         <a class="nav-link" href="">about</a>
+                         <a class="nav-link" href="/product/product-showcase">about</a>
                          <a class="nav-link" href="/product/product-showcase">shoes</a>
                          <a class="nav-link" href="/product/product-showcase">bags</a>
                          <a class="nav-link" href="/product/product-showcase">belt</a>
@@ -33,10 +33,10 @@
                                   <% }else{ %>
                                     <div class="profile-intro">
                                         <a href="/product/checkout" class="add-cart">
-                                            <i class="cart-button fa-solid fa-cart-shopping"></i>
+                                            <i class="cart-button fa fa-cart-plus"></i>
                                           </a>
                                           <a href="/product/wishlist/<%= activeUser._id  %> " class="add-cart">
-                                            <i class="cart-button fa-regular fa-heart"></i>
+                                            <i class="cart-button fa fa-heart"></i>
                                           </a>
                                           <% if(!activeUser.profilePic){ %>
                                                 <img class="img-fluid" id="profile-image" src="https://img.freepik.com/premium-psd/character-avatar-3d-illustration_460336-702.jpg?w=740" alt="profile-image" title="Profile picture of <%= activeUser.username  %> ">

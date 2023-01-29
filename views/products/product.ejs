@@ -8,10 +8,13 @@
              <% if(!products.length){ %> 
                 <%- include('../partial/empty-field.ejs')  %> 
             <% }else{ %> 
+                <h1><%= category  %> </h1>
                 <% for(let product of products){ %>
                     <% if(product.productAvaility === 'Out Of Stock'){ %>
                     <% }else{ %>  
+                        
                     <div class="col-md-4">
+                        
                         <div class="product-details">
                             <div class="card-main">
                                 <div class="card-img">

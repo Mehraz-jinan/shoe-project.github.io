@@ -968,68 +968,65 @@ a .cart-button:hover{
     font-size: 18px;
     letter-spacing: 1px;
 }
-#view-product .product-view-details .product-availity p{
-    font-weight: 700;
-}
-#view-product .product-view-details .product-color{
+
+#view-product .product-view-details .action-button{
     display: flex;
-    justify-content: space-evenly;
+    width: 100%;
     padding: 20px 0px;
+    gap: 10px;
 }
-#view-product .product-view-details .product-color .red{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: red;
-}
-#view-product .product-view-details .product-color .green{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: green;
-}
-#view-product .product-view-details .product-color .yellow{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: yellow;
-}
-#view-product .product-view-details .product-color .violet{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: violet;
-}
-#view-product .product-view-details .product-color .purple{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: purple;
-}
-#view-product .product-view-details .product-color .blue{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: blue;
-}
-#view-product .product-view-details  .sizes{
+#view-product .product-view-details .customer-button .sizes{
     padding: 0px 0px 20px 0px;
+    width: 100%;
 }
-#view-product .product-view-details  .sizes .size-header{
+#view-product .product-view-details .customer-button .sizes .size-header{
     font-weight: 700;
     padding: 10px 0px;
 }
-#view-product .product-view-details  .sizes select{
+#view-product .product-view-details .customer-button .sizes select{
     background: transparent;
     width: 100%;
    padding: 5px 0px;
-   border: 1px solid #F0C9B3;
+   border: 2px solid #F0C9B3;
+   outline: none;
 }
-#view-product .product-view-details .action-button{
-    padding: 20px 0px;
+#view-product .product-view-details .customer-button .sizes input{
+    background: transparent;
     width: 100%;
+   padding: 5px 0px;
+   border: 2px solid #F0C9B3;
+   outline: none;
+}
+#view-product .product-view-details .customer-button .sizes input:focus{
+    background: transparent;
+    width: 100%;
+   padding: 5px 0px;
+   border: 2px solid #F0C9B3;
+   outline: none;
+}
+#view-product .product-view-details .customer-button .cartButton{
     display: flex;
-    gap: 10px;
+    padding: 10px 0px;
+}
+#view-product .product-view-details .customer-button button i{
+    color: #011627;
+    font-size: 15px;
+    padding: 0px 5px;
+}
+#view-product .product-view-details .customer-button button{
+    font-weight: 100;
+    background: transparent;
+    border: 1px solid #011627;
+    outline: none;
+    padding: 10px 40px;
+    border-radius: 0px;
+    transition: all ease-in 0.5s;
+    text-decoration: none;
+}
+#view-product .product-view-details  .customer-button button:hover{
+    background: linear-gradient(90deg, #F0C9B3 , #FFF0DF);;
+    color: #011627;
+    border: 1px solid #fbfbf2;
 }
 #view-product .product-view-details .action-button button{
     font-weight: 700;

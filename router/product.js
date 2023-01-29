@@ -14,13 +14,15 @@ const productController = require('../contorllers/products')
 
 
 
-
-router.get('/product-showcase',
-    productController.showProducts
-);
+router.route('/product-showcase')
+    .get(
+        productController.showProducts
+    );
 router.get('/product-view/:id',
     productController.viewIndividualProduct
 );
+
+
 
 // Wishlist Router
 router.route('/wishlist/:id')

@@ -7,7 +7,10 @@ const newCartSchema = new Schema({
     productQuantity: {
         type: Number,
     },
-    productSize: {
+    cartProductColor: {
+        type: String,
+    },
+    cartProductSize: {
         type: String,
     },
     productInfo: {
