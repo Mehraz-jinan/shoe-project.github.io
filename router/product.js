@@ -9,7 +9,10 @@ const { isAuthor } = require('../middleware');
 const { populate } = require('../models/review');
 const Subreview = require('../models/sub-review');
 const Cart = require('../models/addtocart');
-const productController = require('../contorllers/products')
+const productController = require('../contorllers/products');
+const multer = require('multer');
+const { storage } = require('../cloudinary/index');
+const upload = multer({ storage})
 
 
 
@@ -83,7 +86,9 @@ router.route('/unlisted/:id')
 router.post('/:id/add',
     isLoggedIn,
     isAuthor,
+    upload.array('productImage'),
     productController.createProduct
+   
 );
 
 router.route('/:id/edit')
@@ -95,6 +100,7 @@ router.route('/:id/edit')
     .put(
         isLoggedIn,
         isAuthor,
+        upload.array('productImage'),
         productController.productEdit
     );
 router.delete('/delete/:id',

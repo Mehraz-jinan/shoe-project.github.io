@@ -5,9 +5,12 @@ const Review = require('./review');
 const Subreview = require('./sub-review');
 const Cart = require('./addtocart');
 const newProductSchema = new Schema({
-    productImage: {
-        type: String,
-    },
+    productImage: [
+        {
+            url: String,
+            filename:String,
+        }
+    ],
     productName: {
         type: String,
     },

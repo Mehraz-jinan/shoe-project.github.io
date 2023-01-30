@@ -18,13 +18,13 @@
                         <div class="product-details">
                             <div class="card-main">
                                 <div class="card-img">
-                                    <img class="img-fluid" src="<%= product.productImage  %> " alt="product-img">
+                                    <img class="img-fluid" src="<%= product.productImage[0].url  %> " alt="product-img">
                                 </div>
                                 <div class="card-details">
                                     <div class="product-name">
                                         <p>
                                             <b>
-                                                <%= product.productName  %> 
+                                                <%= product.productName.slice(0 , 45) %>...
                                             </b>
                                         </p>
                                         <p>

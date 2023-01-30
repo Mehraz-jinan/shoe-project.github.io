@@ -17,11 +17,17 @@
                 </div>
                 <div class="edit-form">
                     <div class="col-lg-8 offset-2 edit-main-form">
-                        <form action="/product/<%= findEdit._id  %>/edit?_method=PUT" method="POST">
+                        <form action="/product/<%= findEdit._id  %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
                             <div class="form-decor">
-                                <label for="image">Enter Your URL Of Image</label>
-                    <input type="text" name="productImage" value="<%= findEdit.productImage  %> ">
-                            </div>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="image" name="productImage" multiple>
+                      </div>
+                      </div>
+                      <% findEdit.productImage.forEach((image , i) => { %>
+                        <img src="<%= image.url %>" class="img-fluid" alt="">
+                        <input type="checkbox" id="image<%= [i] %> " name="deleteImage[]" value="<%= image.filename  %> ">
+                        <label for="image<%= [i] %> "></label>
+                        <% }) %>  
                             <div class="form-decor">
                                 <label for="productname">Enter The Product Name: </label>
                     <input type="text" name="productName" id="productname" value="<%= findEdit.productName  %> ">

@@ -4,6 +4,7 @@ const Cart = require('../models/addtocart');
 const Review = require('../models/review');
 const Subreview = require('../models/sub-review');
 const { find } = require('../models/addtocart');
+const { cloudinary } = require('../cloudinary/index');
 let categories = ["cloths","shoes","women's Cloth","jacket","kids","men Watch","womens's Watch"];
 
 module.exports.showProducts = async (req, res, next) => {
@@ -176,7 +177,7 @@ module.exports.createProduct = async (req, res, next) => {
     const { id } = req.params;
     const findAuthor = await User.findById(id);
     const content = req.body;
-    if (!content.productImage || !content.productName || !content.productDescription || !content.productPrice || !content.productAvaility || !content.productSize || !content.productColor || !content.category) {
+    if (!req.files.length || !content.productName || !content.productDescription || !content.productPrice || !content.productAvaility || !content.productSize || !content.productColor || !content.category) {
         req.flash('error', 'Please Insert Everything');
         return res.redirect('/product/dashboard');
     } else {
@@ -202,6 +203,10 @@ module.exports.createProduct = async (req, res, next) => {
         newProduct.productColor = spliteColor;
         const addProduct = findAuthor.product.push(newProduct);
         const addCreator = newProduct.creator.push(findAuthor);
+        newProduct.productImage = req.files.map(f => ({
+            url: f.path,
+            filename: f.filename,
+        }));
         findAuthor.save();
         newProduct.save();
         req.flash('success', `Successfully Create A New Product ${findAuthor.username}`);
@@ -220,11 +225,13 @@ module.exports.renderProductEditForm = async (req, res, next) => {
 module.exports.productEdit = async (req, res, next) => {
     const { id } = req.params;
     const content = req.body;
+    console.log(content)
     const size = content.productSize;
     const sizeSplit = size.split(',');
     const colors = content.productColor;
     const colorSplit = colors.split(',');
-    if (content.productImage && content.productName && content.productDescription && content.productPrice && content.productAvaility && content.productSize){
+    console.log(req.files)
+    if (content.productName && content.productDescription && content.productPrice && content.productAvaility && content.productSize){
         const updatedProduct = await Product.findByIdAndUpdate(id, {
             productImage: content.productImage,
             productName: content.productName,
@@ -239,13 +246,31 @@ module.exports.productEdit = async (req, res, next) => {
                 runValidators: true,
                 new: true
             });
-        
+        const images = req.files.map(f => ({
+            url: f.path,
+            filename: f.filename,
+            }))
+        updatedProduct.productImage.push(...images);
+        await updatedProduct.save();
+        if (req.body.deleteImage) {
+            for (let filename of req.body.deleteImage) {
+              await cloudinary.uploader.destroy(filename);
+            }
+          await updatedProduct.updateOne({
+                $pull: {
+                    productImage: {
+                        filename: {
+                            $in: req.body.deleteImage
+                        }
+                    }
+                }
+            })
+        }
         if (updatedProduct.productAvaility === 'Out Of Stock') {
             req.flash('success', 'You unlist the product');
             res.redirect(`/product/unlisted/${id}`);
         } else {
             req.flash('success', `Updated Successfully`);
-            console.log(updatedProduct);
             res.redirect(`/product/product-view/${updatedProduct._id}`);
         }
     } else {

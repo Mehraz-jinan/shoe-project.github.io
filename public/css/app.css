@@ -49,6 +49,26 @@ h1{
     font-weight: 100;
 }
 
+
+
+.input-group > .form-control {
+    flex: none;
+    position: relative;
+    width: 70%;
+    min-width: 0;
+    border: none;
+    border-bottom: 1px solid #011627;
+    outline: none;
+    border-radius: none;
+}
+.input-group .form-control:focus {
+    border: none;
+    outline: none;
+    border-radius: none;
+}
+textarea{
+    height: 200px;
+}
 /* top part main css starts here */
 header{
     margin-bottom: 50px;
@@ -872,7 +892,7 @@ a .cart-button:hover{
 
 #show-product .product-details .card-main .card-img{
     width: 100%;
-    height: 400px;
+    height: 450px;
 }
 #show-product .product-details .card-main .card-img img{
     width: 100%;
@@ -1366,7 +1386,7 @@ a .cart-button:hover{
 }
 #checkout .product-avatar{
     height: 100%;
-    width: 100%;
+    width: 350px;
 }
 #checkout .product-avatar img{
     width: 100%;
@@ -1547,8 +1567,8 @@ a .cart-button:hover{
     padding: 20px 10px;
 }
 #wishlist .wishlist-image{
-    height: 356px;
-    width: 356px;
+    width: 100%;
+    height: 350px;
 }
 #wishlist .wishlist-image img{
     object-fit: cover;

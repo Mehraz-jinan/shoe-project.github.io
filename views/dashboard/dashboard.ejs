@@ -6,10 +6,14 @@
         <%- include('../partial/dashboard-navbar.ejs')  %> 
         <div class="col-md-8">
         <div class="dashboard-form">
-            <form action="/product/<%=  activeUser._id %>/add " method="POST">
+            <form action="/product/<%=  activeUser._id %>/add " method="POST" enctype="multipart/form-data">
                 <div class="product-img">
                     <label for="image">Enter Your URL Of Image</label>
-                    <input type="text" name="productImage">
+                    <div class="form-decor">
+                        <div class="input-group mb-2">
+                            <input type="file" class="form-control" id="image" name="productImage" multiple>
+                          </div>
+                          </div>
                 </div>
                 <div class="product-name">
                     <label for="productname">Enter The Product Name: </label>

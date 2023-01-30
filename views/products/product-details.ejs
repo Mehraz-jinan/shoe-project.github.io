@@ -11,28 +11,26 @@
         
         <div class="row g-0">
             <div class="col-lg-6">
-                <div class="product-view-img">
-                    <div class="image-1">
-                        <img class="img-fluid" src="<%= findProduct.productImage  %> " alt="">
+
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <% findProduct.productImage.forEach((image , i) => { %> 
+                      <div class="carousel-item <%= i===0 ? 'active' : '' %> ">
+                        <img src="<%= image.url  %> " class="d-block w-100 img-fluid" alt="...">
+                      </div>
+                      <% }) %> 
                     </div>
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <div class="sub-image">
-                                <img class="img-fluid" src="/images/new-arrival/arrival-2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="sub-image">
-                                <img class="img-fluid" src="/images/new-arrival/arrival-3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="sub-image">
-                                <img class="img-fluid" src="/images/new-arrival/arrival-4.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <% if(findProduct.productImage.length > 1){ %> 
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                    <% } %> 
+                  </div>
             </div>
             <div class="col-lg-6">
                 <div class="product-view-details">
@@ -114,7 +112,9 @@
             </div>
         </div>
     </div>
+    <% if(activeUser){ %> 
     <hr>
+    <% } %> 
     <div class="product-review">
         <div class="container-fluid">
             <div class="row">

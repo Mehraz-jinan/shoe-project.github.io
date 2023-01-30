@@ -9,7 +9,7 @@
             <% for(let cart of findUser.addtocart){ %> 
             <div class="col-lg-4">
                 <div class="product-avatar">
-                   <img class="img-fluid" src="<%= cart.productInfo.productImage  %> " alt="">
+                   <img class="img-fluid" src="<%= cart.productInfo.productImage[0].url  %> " alt="">
                 </div>
             </div>
             <div class="col-lg-8">
