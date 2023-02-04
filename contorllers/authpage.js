@@ -29,7 +29,7 @@ module.exports.registerUser = async (req, res, next) => {
                 } else {
                     
                     req.flash('success', `Set your profile ${req.user.username} to move forward`);
-                    res.redirect(`/user/setprofile/${req.user._id}`);
+                    res.redirect(`/user/${req.user.username}`);
                     next();
                 }
             })

@@ -24,9 +24,13 @@ const newUserSchema = new Schema({
     address: {
         type: String,
     },
-    profilePic: {
-        type: String,
-    },
+    profilePic:
+        {
+            url: String,
+            filename: String,
+        }
+    ,
+    
     product: [
         {
         type: mongoose.Types.ObjectId,

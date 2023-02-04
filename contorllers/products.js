@@ -207,8 +207,8 @@ module.exports.createProduct = async (req, res, next) => {
             url: f.path,
             filename: f.filename,
         }));
-        findAuthor.save();
-        newProduct.save();
+        await findAuthor.save();
+        await newProduct.save();
         req.flash('success', `Successfully Create A New Product ${findAuthor.username}`);
         res.redirect(`/product/product-view/${newProduct._id}`);
     }
@@ -225,12 +225,10 @@ module.exports.renderProductEditForm = async (req, res, next) => {
 module.exports.productEdit = async (req, res, next) => {
     const { id } = req.params;
     const content = req.body;
-    console.log(content)
     const size = content.productSize;
     const sizeSplit = size.split(',');
     const colors = content.productColor;
     const colorSplit = colors.split(',');
-    console.log(req.files)
     if (content.productName && content.productDescription && content.productPrice && content.productAvaility && content.productSize){
         const updatedProduct = await Product.findByIdAndUpdate(id, {
             productImage: content.productImage,
@@ -252,19 +250,11 @@ module.exports.productEdit = async (req, res, next) => {
             }))
         updatedProduct.productImage.push(...images);
         await updatedProduct.save();
-        if (req.body.deleteImage) {
-            for (let filename of req.body.deleteImage) {
-              await cloudinary.uploader.destroy(filename);
+        if (req.body.deleteImages) {
+            for (let filename of req.body.deleteImages) {
+                await cloudinary.uploader.destroy(filename);
             }
-          await updatedProduct.updateOne({
-                $pull: {
-                    productImage: {
-                        filename: {
-                            $in: req.body.deleteImage
-                        }
-                    }
-                }
-            })
+            await updatedProduct.updateOne({ $pull: { productImage: { filename: { $in: req.body.deleteImages } } } });
         }
         if (updatedProduct.productAvaility === 'Out Of Stock') {
             req.flash('success', 'You unlist the product');
@@ -334,7 +324,11 @@ module.exports.deleteFromOutOfStock = async (req, res, next) => {
 
 module.exports.productDelete = async (req, res, next) => {
     const { id } = req.params;
-    const deleteProduct = await Product.findByIdAndDelete(id);
+    const deleteProduct = await Product.findById(id);
+    for (let filename of deleteProduct.productImage) {
+      await cloudinary.uploader.destroy(filename.filename);
+    }
+    await Product.findByIdAndDelete(id);
     req.flash('success', 'Deleted Successfully');
     res.redirect('/product/product-showcase');
 }

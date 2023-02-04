@@ -38,11 +38,11 @@
                                           <a href="/product/wishlist/<%= activeUser._id  %> " class="add-cart">
                                             <i class="cart-button fa fa-heart"></i>
                                           </a>
-                                          <% if(!activeUser.profilePic){ %>
+                                          <% if(!activeUser.profilePic.url){ %>
                                                 <img class="img-fluid" id="profile-image" src="https://img.freepik.com/premium-psd/character-avatar-3d-illustration_460336-702.jpg?w=740" alt="profile-image" title="Profile picture of <%= activeUser.username  %> ">
                                             
                                             <% }else{ %>  
-                                            <img class="img-fluid" id="profile-image" src="<%= activeUser.profilePic  %> " title="Profile picture of <%= activeUser.username  %> ">
+                                            <img class="img-fluid" id="profile-image" src="<%= activeUser.profilePic.url  %> " title="Profile picture of <%= activeUser.username  %> ">
                                         <% } %> 
                                         
                                     </div>

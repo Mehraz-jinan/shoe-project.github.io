@@ -11,7 +11,7 @@
         
         <div class="row g-0">
             <div class="col-lg-6">
-
+                <div class="product-view-img">
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
                         <% findProduct.productImage.forEach((image , i) => { %> 
@@ -31,6 +31,7 @@
                     </button>
                     <% } %> 
                   </div>
+                </div>
             </div>
             <div class="col-lg-6">
                 <div class="product-view-details">
@@ -50,7 +51,10 @@
                     </div>
                     <div class="product-details">
                         <p>
-                            <%= findProduct.productDescription  %> 
+                            <%= findProduct.productDescription.slice(0,1000)  %> 
+                            <span>
+                                <b>See more...</b>
+                            </span>
                         </p>
                     </div>
                     

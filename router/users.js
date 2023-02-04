@@ -4,19 +4,13 @@ const router = express.Router();
 const Product = require('../models/productModel');
 const User = require('../models/user');
 const Cart = require('../models/addtocart');
-const { isLoggedin } = require('../middleware');
+const { isLoggedIn } = require('../middleware');
 const { isAuthor } = require('../middleware');
-const { route } = require('./product');
 const { update } = require('../models/addtocart');
 const userController = require('../contorllers/user');
-
-router.route('/setprofile/:id')
-    .get(
-        userController.profile
-    )
-    .post(
-        userController.setprofile
-    );
+const multer = require('multer');
+const { storage } = require('../cloudinary/index');
+const upload = multer({ storage });
 
 router.get('/:userName',
     userController.userprofile
@@ -24,10 +18,16 @@ router.get('/:userName',
 
 router.route('/info/:id/edit')
     .get(
+        isLoggedIn,
         userController.profileEditRender
     )
     .put(
+        isLoggedIn,
+        upload.single('profilePic'),
         userController.userProfileEdit
     )
+
+
+    
 
 module.exports = router;

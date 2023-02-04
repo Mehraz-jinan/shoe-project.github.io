@@ -4,13 +4,15 @@ const User = require('./user');
 const Review = require('./review');
 const Subreview = require('./sub-review');
 const Cart = require('./addtocart');
+const imageSchema = new Schema({
+    url: String,
+    filename: String,
+});
+imageSchema.virtual('thumbnail').get(function () {
+   return this.url.replace('/upload' , '/upload/w_200')
+})
 const newProductSchema = new Schema({
-    productImage: [
-        {
-            url: String,
-            filename:String,
-        }
-    ],
+    productImage: [imageSchema],
     productName: {
         type: String,
     },

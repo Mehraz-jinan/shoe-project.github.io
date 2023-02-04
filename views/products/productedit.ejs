@@ -23,11 +23,30 @@
                         <input type="file" class="form-control" id="image" name="productImage" multiple>
                       </div>
                       </div>
-                      <% findEdit.productImage.forEach((image , i) => { %>
-                        <img src="<%= image.url %>" class="img-fluid" alt="">
-                        <input type="checkbox" id="image<%= [i] %> " name="deleteImage[]" value="<%= image.filename  %> ">
-                        <label for="image<%= [i] %> "></label>
-                        <% }) %>  
+                      <!-- <% findEdit.productImage.forEach((image , i) => { %>
+                        <img src="<%= image.thumbnail %>" class="img-fluid" alt="Edited Images">
+                        <input type="checkbox" id="image-<%= [i] %> " name="deleteImage[]" value="<%= image.filename  %> ">
+                        <div class="caheckbox-label">
+                        <label for="image-<%= [i] %> ">Delete</label>
+                    </div>
+                        <% }) %>   -->
+                        <div class="edit-image-show">
+                            <div class="container">
+                                <div class="row">
+                                    <% findEdit.productImage.forEach((image , i) => { %> 
+                                    <div class="col-md-4">
+                                        <div class="image-box">
+                                            <img class="img-fluid" src="<%= image.thumbnail %> " alt="">
+                                        </div>
+                                        <div class="image-label">
+                                            <input type="checkbox" id="image-<%= i  %> " value="<%=image.filename%>" name="deleteImages[]">
+                                            <label for="image-<%= i %> ">Select To Delete</label>
+                                        </div>
+                                    </div>
+                                    <% }) %> 
+                                </div>
+                            </div>
+                        </div>
                             <div class="form-decor">
                                 <label for="productname">Enter The Product Name: </label>
                     <input type="text" name="productName" id="productname" value="<%= findEdit.productName  %> ">

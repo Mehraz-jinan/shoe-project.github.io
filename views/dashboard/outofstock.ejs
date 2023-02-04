@@ -13,9 +13,11 @@
                 <% for(let product of findProduct){ %> 
                     <div class="all-order">
                     <div class="product-summary">
+                        
                         <div class="product-img">
-                            <img class="img-fluid" src="<%= product.productImage  %> " alt="All-order-photo">
+                            <img class="img-fluid" src="<%= product.productImage[0].url  %> " alt="All-order-photo">
                         </div>
+                       
                         <div class="product-info">
                             <p>
                                 <%= product.productName  %> 
