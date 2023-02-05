@@ -12,7 +12,7 @@ body{
     color: #011627;
 }
 
-h4{
+h2,h3,h4,h5{
     font-family: 'Futura Lt BT', sans-serif;
     font-weight: 100;
     font-size: 3rem;
@@ -411,6 +411,9 @@ a .cart-button:hover{
 .type{
 	display: flex;
 	flex-direction: column;
+}
+.type h5{
+    font-size: 2rem;
 }
 .type a{
 	color:#011627;
@@ -953,6 +956,9 @@ a .cart-button:hover{
     justify-content: center;
     flex-direction: column;
 }
+#view-product .product-view-details .category-link{
+    padding: 10px 0px;
+}
 #view-product .product-view-details .product-name p b{
     font-size: 2rem;
     color: #000;
@@ -961,17 +967,20 @@ a .cart-button:hover{
 #view-product .product-view-details .product-name .price b{
     font-size: 1.5rem;
 }
-#view-product .product-view-details .product-details{
+#view-product  .product-details{
     width: 100%;
+    padding: 30px 0px;
+    
+}
+#view-product .product-details h4{
+    padding: 10px 0px;
+    text-decoration: underline #F0C9B3;
+}
 
-}
-#view-product .product-view-details .product-details span b{
-    color: #0d6efd;
-    font-weight: 700;
-}
-#view-product .product-view-details .product-details p{
-    font-weight: 100;
+#view-product  .product-details p{
+    font-weight: 500;
     font-size: 18px;
+    line-height: 2rem;
     letter-spacing: 1px;
 }
 
@@ -990,8 +999,8 @@ a .cart-button:hover{
     padding: 10px 0px;
 }
 #view-product .product-view-details .customer-button .sizes select{
-    background: transparent;
-    width: 100%;
+    background: linear-gradient(90deg, #FFF0DF , #F0C9B3);
+    width: 70%;
    padding: 5px 0px;
    border: 2px solid #F0C9B3;
    outline: none;
@@ -1006,7 +1015,7 @@ a .cart-button:hover{
 }
 #view-product .product-view-details .customer-button .sizes input:focus{
     background: transparent;
-    width: 100%;
+    width: 70%;
    padding: 5px 0px;
    border: 2px solid #F0C9B3;
    outline: none;
