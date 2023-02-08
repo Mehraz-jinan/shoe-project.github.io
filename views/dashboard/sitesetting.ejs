@@ -1,0 +1,32 @@
+<% layout('layout/boilerplate.ejs') %>  
+
+
+<div class="conatiner-fluid">
+    <div class="row g-5">
+        <%- include('../partial/dashboard-navbar.ejs')  %> 
+        <div class="col-md-8">
+        <div class="dashboard-form">
+            <form action="/site-setting" method="POST" enctype="multipart/form-data">
+                <div class="product-img">
+                    <label for="image">Upload banner photo</label>
+                    <div class="form-decor">
+                        <div class="input-group mb-2">
+                            <input type="file" class="form-control" id="image" name="bannerImage" multiple>
+                          </div>
+                          </div>
+                </div>
+                <div class="product-name">
+                    <label for="productname">Change the welcome message: </label>
+                    <input type="text" name="welcome" id="productname">
+                </div>
+                <div class="form-button">
+                    <button>
+                        Save Your Setting
+                    </button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+ 

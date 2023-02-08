@@ -1,0 +1,67 @@
+<div class="arrival-content">
+        <div class="container-fluid">
+            <div class="row"> 
+                <div class="col-lg-3">
+                 
+                <div class="first-arrival-content">
+                        <div class="arrival-img">
+                            <img class="img-fluid" src="<%=findProduct.productImage[0].url  %> " alt="new-arrival">
+                        </div>
+                        <div class="arrival-description">
+                            <p class="arrival-product-name">
+                                <%= findProduct.productName  %>.
+                            </p>
+                             
+                             <b class="arrival-product-price">
+                                Price: <%= product.productPrice %>$.
+                            </b>
+                            <small class="text-muted">
+                                Do Hurry and Check It out
+                            </small>
+                        </div>
+                        <a href="/product/product-view/<%= product._id  %> ">View Product</a>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="first-arrival-content">
+                        <div class="arrival-img">
+                            <img class="img-fluid" src="<%=product.productImage[1].url %>" alt="new-arrival">
+                        </div>
+                        <div class="arrival-description">
+                            <p class="arrival-product-name">
+                                <%= product.productName[1]  %> 
+                            </p>
+                             <b class="arrival-product-price">
+                                Price: <%= product.productPrice[1]  %>$ .
+                            </b>
+                            <small class="text-muted">
+                                Do Hurry and Check It out
+                            </small>
+                        </div>
+                        <a href="/product/product-view/<%= product._id[1]  %> ">View Product</a>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="last-arrival-content">
+                        <div class="arrival-img">
+                            <img class="img-fluid" src="<%= product.productImage[2].url  %> " alt="new-arrival">
+                        </div>
+                        <div class="arrival-description">
+                            <p class="arrival-product-name">
+                                <%= product.productName[2]  %> 
+                            </p>
+                             <b class="arrival-product-price">
+                                Price: <%= product.productPrice[2] %>$
+                            </b>
+                            <small class="text-muted">
+                                Do Hurry and Check It out
+                            </small>
+                        </div>
+                        <a href="/product/product-view/<%= product._id[2]  %> ">View Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 

@@ -1,0 +1,47 @@
+<%- layout('layout/boilerplate')  %> 
+<section id="edit-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="edit-header">
+                    <p>Edit Site Banner</p>
+                </div>
+                <div class="edit-form">
+                    <div class="col-lg-8 offset-2 edit-main-form">
+                        <form action="/site-setting/<%=formData._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                            <div class="form-decor">
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="image" name="bannerImage" multiple>
+                      </div>
+                      </div>
+                        <div class="edit-image-show">
+                            <div class="container">
+                                <div class="row">
+                                    <% formData.bannerImage.forEach((image , i) => { %> 
+                                    <div class="col-md-4">
+                                        <div class="image-box">
+                                            <img class="img-fluid" src="<%= image.thumbnail %>" alt="">
+                                        </div>
+                                        <div class="image-label">
+                                            <input type="checkbox" id="image-<%=i%>" value="<%=image.filename%>" name="deleteImages[]">
+                                            <label for="image-<%=i%>">Select To Delete</label>
+                                        </div>
+                                    </div>
+                                    <% }) %> 
+                                </div>
+                            </div>
+                        </div>
+                            <div class="form-decor">
+                                <label for="productname">Change The Welcome Greetings: </label>
+                                <input type="text" name="welcome" id="productname" value="<%= formData.welcome %>">
+                            </div>
+                            <div class="sign-in-button">
+                                <button>Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
